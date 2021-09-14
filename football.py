@@ -5,7 +5,7 @@ import os
 import numpy as np
 import pandas
 
-from data.football_format import FootballHeader
+from data.nflsavant_format import FootballHeader
 
 DATA_DIR = "./data/"
 PBP = "pbp-"

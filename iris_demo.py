@@ -1,8 +1,8 @@
-from sklearn import preprocessing
-from sklearn.datasets import load_iris
 # Iris data is the famous R. A. Fisher set:  https://en.wikipedia.org/wiki/Iris_flower_data_set
 # X:  150 x 4.  Each of the 4 is a continuous variable.
 # y:  150 x 1.  Categorical:  0, 1, 2;   30 each
+from sklearn import preprocessing
+from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
 from LogReg import LogReg
@@ -32,3 +32,4 @@ if __name__ == "__main__":
     dw = DataWrangler()
     for ii in range(0, NUM_ITERS):
         dw.create_train_test_and_fit()
+        print("\n")

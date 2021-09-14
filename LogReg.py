@@ -1,7 +1,12 @@
+#
+# Simple wrapper for Logistic Regression
+#
+
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn.metrics import roc_auc_score
 
 NUM_TO_TEST = 20
+
 
 class LogReg:
 
