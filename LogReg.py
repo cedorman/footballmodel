@@ -38,7 +38,7 @@ class LogReg:
         print(f"Train: {score}")  # 0.98 with CV, 0.973 without
 
         # AUC score
-        auc_score = roc_auc_score(y_train, logistic_regression.predict_proba(X_train), multi_class='ovr')
+        auc_score = roc_auc_score(y_train, logistic_regression.predict(X_train), multi_class='ovr')
         print(f"Train: {auc_score}")  # 0.9989 with no-scaling;  0.99906 with scaling
 
         # ----------------------------------
@@ -47,5 +47,5 @@ class LogReg:
         print(f"Test: {score}")  # 0.98 with CV, 0.973 without
 
         # AUC score
-        auc_score = roc_auc_score(y_test, logistic_regression.predict_proba(X_test), multi_class='ovr')
+        auc_score = roc_auc_score(y_test, logistic_regression.predict(X_test), multi_class='ovr')
         print(f"Test: {auc_score}")  # 0.9989 with no-scaling;  0.99906 with scaling
