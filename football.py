@@ -21,11 +21,12 @@ END_YEAR = 2020
 LOG_LEVEL = logging.INFO
 LOG_LEVEL = logging.DEBUG
 
+logging.getLogger().setLevel(LOG_LEVEL)
 
 class Football:
 
     def __init__(self):
-        logging.getLogger().setLevel(LOG_LEVEL)
+
         self.football_data = None
         self.football_yearly = {}
 
@@ -66,7 +67,7 @@ class Football:
         print("Rush or Pass")
         print(f"{rush_or_pass}")
         
-        subset_x = rush_or_pass[["Down", "ToGo", "YardLine", "SeriesFirstDown"]]
+        subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown"]]
         # subset_x = rush_or_pass[["Down", "ToGo", "YardLine"]]        
         # subset_x = rush_or_pass[["Down", "ToGo"]]
         # subset_x = rush_or_pass[["Down"]]
@@ -91,7 +92,7 @@ class Football:
         return array_x, array_y
 
     def model_logit(self):
-
+        array_x, array_y = self.get_simplified_data()
         X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
         lr = LogReg(X_train, X_test, y_train, y_test)
 
@@ -121,12 +122,6 @@ class Football:
     def print_overall_stats(self):
         self.print_stats(self.football_data)
 
-    def show_scatterplot_matrix(self):
-        logging.debug("Staring scatterplot matrix")
-        import seaborn as sns
-        sns.set_theme(style='ticks')
-        sns.pairplot(self.football_data.iloc[1:100,:], hue='PlayType')
-        logging.debug("scatterplot created")
 
 if __name__ == "__main__":
     football = Football()
