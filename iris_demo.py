@@ -4,14 +4,15 @@
 import logging
 
 import logger
+from DecTree import DecTree
+from LogReg import LogReg
+from RandForest import RandForest
 
 logger.set_logging()
 
 from sklearn import preprocessing
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-
-from LogReg import LogReg
 
 NUM_ITERS = 5
 
@@ -29,14 +30,31 @@ class DataWrangler:
         scaler = preprocessing.StandardScaler().fit(X)
         self.X = scaler.transform(X)
 
-    def create_train_test_and_fit(self):
-        X_train, X_test, y_train, y_test = train_test_split(self.X, self.y, test_size=0.2)
-        lr = LogReg(X_train, X_test, y_train, y_test)
+    def create_train_and_test(self):
+        self.X_train, self.X_test, self.y_train, self.y_test = \
+            train_test_split(self.X, self.y, test_size=0.2)
+
+    def do_logistic_regression(self):
+        lr = LogReg(self.X_train, self.X_test, self.y_train, self.y_test)
         lr.score_multi_class()
+
+    def do_decision_tree(self):
+        dt = DecTree(self.X_train, self.X_test, self.y_train, self.y_test)
+        dt.score()
+
+
+    def do_random_forest(self):
+        dt = RandForest(self.X_train, self.X_test, self.y_train, self.y_test)
+        dt.score()
+
 
 
 if __name__ == "__main__":
     dw = DataWrangler()
+    dw.create_train_and_test()
+
     for ii in range(0, NUM_ITERS):
-        dw.create_train_test_and_fit()
+        # dw.do_logistic_regression()
+        # dw.do_decision_tree()
+        dw.do_random_forest()
         logging.info("\n")

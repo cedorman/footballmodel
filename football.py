@@ -6,7 +6,9 @@ import pandas
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
+from DecTree import DecTree
 from LogReg import LogReg
+from RandForest import RandForest
 from data.nflsavant_format import FootballHeader
 
 DATA_DIR = "./data/"
@@ -97,7 +99,7 @@ class Football:
         logging.debug(f"array y \n{array_y} \n  {array_y.shape}")
         return array_x, array_y
 
-    def model_logit(self):
+    def get_columns_to_use(self):
         columns_to_use = [
             ["Down"],
             ["ToGo"],
@@ -109,13 +111,43 @@ class Football:
             ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam"],
             ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam", "DefenseTeam"]
         ]
+        return columns_to_use
 
-        for column_list in columns_to_use:
+    def model_logit(self):
+         for column_list in self.get_columns_to_use():
             logging.info(f"--- Column List: {column_list} --- ")
             array_x, array_y = self.get_simplified_data(column_list)
             X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
             lr = LogReg(X_train, X_test, y_train, y_test)
             lr.score()
+
+    def model_dectree(self):
+        for column_list in self.get_columns_to_use():
+            avg = 0
+            # Noisy, so do multiple times
+            for ii in range(0,10):
+                logging.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.get_simplified_data(column_list)
+                X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
+                dt = DecTree(X_train, X_test, y_train, y_test)
+                avg += dt.score()
+
+            avg /= 10.
+            print(f"Average: {avg}")
+
+    def model_random_forest(self):
+        for column_list in  self.get_columns_to_use():
+            avg = 0
+            # Noisy, so do multiple times
+            for ii in range(0, 10):
+                logging.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.get_simplified_data(column_list)
+                X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
+                dt = RandForest(X_train, X_test, y_train, y_test)
+                avg += dt.score()
+
+            avg /= 10.
+            print(f"Average: {avg}")
 
     def print_stats(self, frame):
 
@@ -149,4 +181,6 @@ if __name__ == "__main__":
 
     # football.print_overall_stats()
     # football.print_yearly_stats()
-    football.model_logit()
+    # football.model_logit()
+    # football.model_dectree()
+    football.model_random_forest()
