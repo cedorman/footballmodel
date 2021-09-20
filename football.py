@@ -66,8 +66,10 @@ class Football:
         rush_or_pass = self.football_data.loc[self.football_data['PlayType'].isin(['RUSH','PASS'])]
         print("Rush or Pass")
         print(f"{rush_or_pass}")
-        
-        subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown"]]
+
+        subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam"]]     
+        # subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear"]]        
+        # subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown"]]
         # subset_x = rush_or_pass[["Down", "ToGo", "YardLine"]]        
         # subset_x = rush_or_pass[["Down", "ToGo"]]
         # subset_x = rush_or_pass[["Down"]]
@@ -126,8 +128,7 @@ class Football:
 if __name__ == "__main__":
     football = Football()
     football.read_data()
-    football.show_scatterplot_matrix()
 
     # football.print_overall_stats()
     # football.print_yearly_stats()
-    # football.model_logit()
+    football.model_logit()
