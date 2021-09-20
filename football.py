@@ -1,13 +1,12 @@
 import io
-import logging
 import os
 
 import numpy as np
 import pandas
-from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
-from LogReg import LogReg
+from sklearn.model_selection import train_test_split
 
+from LogReg import LogReg
 from data.nflsavant_format import FootballHeader
 
 DATA_DIR = "./data/"
@@ -18,10 +17,11 @@ SUFFIX = ".csv"
 BEGIN_YEAR = 2020
 END_YEAR = 2020
 
-LOG_LEVEL = logging.INFO
-LOG_LEVEL = logging.DEBUG
+import logging
+import logger
 
-logging.getLogger().setLevel(LOG_LEVEL)
+logger.set_logging()
+
 
 class Football:
 
@@ -42,7 +42,6 @@ class Football:
         logging.info("Done reading data")
         logging.debug(f"{self.football_data}")
 
-
     def read_datafile(self, filename: str):
         try:
             logging.info(f"Reading file:  {filename}")
@@ -51,74 +50,82 @@ class Football:
                 # The data is complicated because it has mixed types (categorical, continuous,
                 # text-strings with commas, etc.).  so use pandas
                 frame = pandas.read_csv(data_file, low_memory=False)
-                    # on_bad_lines ='skip', 
-                    # dtype=FootballHeader.get_dtypes(), 
-                    # error_bad_lines = False, warn_bad_lines=True)
-                    # low_memory = False)
+                # on_bad_lines ='skip',
+                # dtype=FootballHeader.get_dtypes(),
+                # error_bad_lines = False, warn_bad_lines=True)
+                # low_memory = False)
                 return frame
 
         except Exception as e:
             logging.warning("Error reading", exc_info=True)
 
-    def get_simplified_data(self):
+    def get_simplified_data(self, columns_to_use):
+
+        logging.debug(f"Size of the original data: {self.football_data.shape}\n")
 
         # Get data where PlayType is Rush or Pass; not kickoff, punt, field goal, kneel, etc.  
-        rush_or_pass = self.football_data.loc[self.football_data['PlayType'].isin(['RUSH','PASS'])]
-        print("Rush or Pass")
-        print(f"{rush_or_pass}")
+        rush_or_pass = self.football_data.loc[self.football_data['PlayType'].isin(['RUSH', 'PASS'])]
+        logging.debug("Rush or Pass Data")
+        logging.debug(f"{rush_or_pass}\n")
 
-        subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam"]]     
-        # subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear"]]        
-        # subset_x = rush_or_pass[["Down", "ToGo", "YardLineFixed", "SeriesFirstDown"]]
-        # subset_x = rush_or_pass[["Down", "ToGo", "YardLine"]]        
-        # subset_x = rush_or_pass[["Down", "ToGo"]]
-        # subset_x = rush_or_pass[["Down"]]
-        # subset_x = rush_or_pass[["ToGo"]]
-        print("Subset X ")
-        print(f"{subset_x}")
+        subset_x = rush_or_pass[columns_to_use]
+        logging.debug("Subset X ")
+        logging.debug(f"{subset_x}\n")
 
         array_x_unscaled = subset_x.to_numpy()
 
         scaler = preprocessing.StandardScaler().fit(array_x_unscaled)
         array_x = scaler.transform(array_x_unscaled)
-        print("Scaled numpy version of X")
-        print(f"{array_x}")
+        logging.debug("Scaled numpy version of X")
+        logging.debug(f"{array_x}")
 
-        subset_y = rush_or_pass[["PlayType"]]
-        subset_y['PlayType'] = (subset_y['PlayType'] == 'PASS').astype(int)
-        print("Subset Y")
-        print(f"{subset_y}")
+        subset_y = (rush_or_pass['PlayType'] == 'PASS').astype(int)
+        logging.debug("Subset Y")
+        logging.debug(f"{subset_y}")
 
         array_y = subset_y.to_numpy().ravel()
-        print(f"array y \n{array_y} \n  {array_y.shape}")
+        logging.debug(f"array y \n{array_y} \n  {array_y.shape}")
         return array_x, array_y
 
     def model_logit(self):
-        array_x, array_y = self.get_simplified_data()
-        X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
-        lr = LogReg(X_train, X_test, y_train, y_test)
+        columns_to_use = [
+            ["Down"],
+            ["ToGo"],
+            ["YardLine"],
+            ["Down", "ToGo"],
+            ["Down", "ToGo", "YardLine"],
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown"],
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear"],
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam"]
+        ]
 
+        for column_list in columns_to_use:
+            logging.info(f"--- Column List: {column_list} --- ")
+            array_x, array_y = self.get_simplified_data(column_list)
+            X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
+            lr = LogReg(X_train, X_test, y_train, y_test)
+            lr.score()
 
     def print_stats(self, frame):
 
         # Num lines
-        print(f"Total:   {len(frame)}")
+        logging.info(f"Total:   {len(frame)}")
 
         # Overall probability of run, pass, or 'other'
         non_zeros = np.count_nonzero(frame, axis=0)
 
-        print("--- Rushing and Passing ---")
-        print(f"Rushing: {non_zeros[FootballHeader.IsRush]}")
-        print(f"Passing: {non_zeros[FootballHeader.IsPass]}")
+        logging.info("--- Rushing and Passing ---")
+        logging.info(f"Rushing: {non_zeros[FootballHeader.IsRush]}")
+        logging.info(f"Passing: {non_zeros[FootballHeader.IsPass]}")
 
         # Count the types of plays
-        print("\n--- Types of Plays ---")
+        logging.info("\n--- Types of Plays ---")
         counts = frame[FootballHeader.PlayType.name].value_counts()
-        print(f"{counts}")
+        logging.info(f"{counts}")
 
     def print_yearly_stats(self):
         for ii in range(BEGIN_YEAR, END_YEAR + 1):
-            print(f"\n--- {ii} ---")
+            logging.info(f"\n--- {ii} ---")
             self.print_stats(self.football_yearly[str(ii)])
 
     def print_overall_stats(self):

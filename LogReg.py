@@ -1,51 +1,100 @@
 #
 # Simple wrapper for Logistic Regression
 #
+import logging
 
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn.metrics import roc_auc_score
 
-NUM_TO_TEST = 20
+import logger
+
+logger.set_logging()
 
 
 class LogReg:
 
     def __init__(self, X_train, X_test, y_train, y_test):
+        """Run a 'standard' LogReg process, use CV to optimize, then print results on
+        train and test."""
+
+        self.X_train = X_train
+        self.X_test = X_test
+        self.y_train = y_train
+        self.y_test = y_test
+
         # without cross validation
         # logistic_regression = LogisticRegression(random_state=0, max_iter=2000).fit(X_train, y_train)
         # With cross validation.
-        logistic_regression = LogisticRegressionCV(random_state=0, max_iter=2000).fit(X_train, y_train)
+        self.logistic_regression = LogisticRegressionCV(random_state=0, max_iter=2000).fit(X_train, y_train)
+
+    def score(self):
+        """ Score, where the y_train / y_test is binary.  """
+
+        x_shape = self.X_train.shape
+        y_shape = self.y_train.shape
+
+        if x_shape[0] != y_shape[0]:
+            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
+        if len(y_shape) != 1:
+            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
 
         # ----------------------------------
         # Training data
-
-        # First NUM_TO_TEST rows of x, all columns.
-        # print(f" {X[:NUM_TO_TEST, :]}")
-
-        # predict on those, categorical (0, 1, 2)
-        prediction = logistic_regression.predict(X_train[:NUM_TO_TEST, :])
-        # print(f" {y_train[:20]}  {prediction}")
-
-        # Predict probability of being in each category, so 3 x continuous [0,1]
-        probs = logistic_regression.predict_proba(X_train[:NUM_TO_TEST, :])
-        # print(f" {y_train[:20]}  {probs}")
 
         # Score on training data.
         # Note that this uses the 'natural' scoring for this sort of classifier,
         # which is accuracy_score from _classification.py, which is simply
         # the % that match.
-        score = logistic_regression.score(X_train, y_train)
-        print(f"Train: {score}")  # 0.98 with CV, 0.973 without
+        score = self.logistic_regression.score(self.X_train, self.y_train)
+        logging.info(f"Train: {score}")
 
         # AUC score
-        auc_score = roc_auc_score(y_train, logistic_regression.predict(X_train), multi_class='ovr')
-        print(f"Train: {auc_score}")  # 0.9989 with no-scaling;  0.99906 with scaling
+        prediction = self.logistic_regression.predict_proba(self.X_train)[:, 1]
+        auc_score = roc_auc_score(self.y_train, prediction, multi_class='ovr')
+        logging.info(f"Train: {auc_score}")
 
         # ----------------------------------
         # Test data
-        score = logistic_regression.score(X_test, y_test)
-        print(f"Test: {score}")  # 0.98 with CV, 0.973 without
+        score = self.logistic_regression.score(self.X_test, self.y_test)
+        logging.info(f"Test:  {score}")
 
         # AUC score
-        auc_score = roc_auc_score(y_test, logistic_regression.predict(X_test), multi_class='ovr')
-        print(f"Test: {auc_score}")  # 0.9989 with no-scaling;  0.99906 with scaling
+        prediction = self.logistic_regression.predict_proba(self.X_test)[:, 1]
+        auc_score = roc_auc_score(self.y_test, prediction, multi_class='ovr')
+        logging.info(f"Test:  {auc_score}")
+
+    def score_multi_class(self):
+        """ Score, where the y_train / y_test is multiclass.  """
+
+        x_shape = self.X_train.shape
+        y_shape = self.y_train.shape
+
+        if x_shape[0] != y_shape[0]:
+            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
+        if len(y_shape) > 1:
+            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
+
+        # ----------------------------------
+        # Training data
+
+        # Score on training data.
+        # Note that this uses the 'natural' scoring for this sort of classifier,
+        # which is accuracy_score from _classification.py, which is simply
+        # the % that match.
+        score = self.logistic_regression.score(self.X_train, self.y_train)
+        logging.info(f"Train: {score}")
+
+        # AUC score
+        prediction = self.logistic_regression.predict_proba(self.X_train)
+        auc_score = roc_auc_score(self.y_train, prediction, multi_class='ovr')
+        logging.info(f"Train: {auc_score}")
+
+        # ----------------------------------
+        # Test data
+        score = self.logistic_regression.score(self.X_test, self.y_test)
+        logging.info(f"Test:  {score}")
+
+        # AUC score
+        prediction = self.logistic_regression.predict_proba(self.X_test)
+        auc_score = roc_auc_score(self.y_test, prediction, multi_class='ovr')
+        logging.info(f"Test:  {auc_score}")

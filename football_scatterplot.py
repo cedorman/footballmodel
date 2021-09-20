@@ -2,11 +2,11 @@ import seaborn as sns
 import pandas
 import numpy as np
 
-import logging
+import logger
 from football import Football
 
-logging.getLogger().setLevel(logging.DEBUG)
-logging.debug("Staring scatterplot matrix")
+logger.getLogger().setLevel(logger.DEBUG)
+logger.debug("Staring scatterplot matrix")
 
 ft = Football()
 ft.read_data()
@@ -23,4 +23,4 @@ subset['SeriesFirstDown'] =subset['SeriesFirstDown'] + np.random.rand(subset.sha
 
 sns.set_theme(style='ticks')
 sns.pairplot(subset, hue='PlayType', plot_kws=dict(alpha=0.4) )
-logging.info("scatterplot created")
+logger.info("scatterplot created")
