@@ -60,6 +60,7 @@ class Football:
             logging.warning("Error reading", exc_info=True)
 
     def get_simplified_data(self, columns_to_use):
+        """Turn the data into clean(er) numpy data"""
 
         logging.debug(f"Size of the original data: {self.football_data.shape}\n")
 
@@ -68,21 +69,30 @@ class Football:
         logging.debug("Rush or Pass Data")
         logging.debug(f"{rush_or_pass}\n")
 
+        # Only columns that we want to use
         subset_x = rush_or_pass[columns_to_use]
-        logging.debug("Subset X ")
-        logging.debug(f"{subset_x}\n")
 
+        # convert some columns to factors
+        for column in columns_to_use:
+            if column == 'OffenseTeam' or \
+                    column == 'DefenseTeam':
+                subset_x[column] = subset_x[column].factorize()[0]
+
+        # convert to numpy
         array_x_unscaled = subset_x.to_numpy()
 
+        # scale, using numpy, to [-1,1]
         scaler = preprocessing.StandardScaler().fit(array_x_unscaled)
         array_x = scaler.transform(array_x_unscaled)
         logging.debug("Scaled numpy version of X")
         logging.debug(f"{array_x}")
 
+        # get y as 0==RUSH 1==PASS
         subset_y = (rush_or_pass['PlayType'] == 'PASS').astype(int)
         logging.debug("Subset Y")
         logging.debug(f"{subset_y}")
 
+        # Turn the 2d array into 1d array
         array_y = subset_y.to_numpy().ravel()
         logging.debug(f"array y \n{array_y} \n  {array_y.shape}")
         return array_x, array_y
@@ -96,7 +106,8 @@ class Football:
             ["Down", "ToGo", "YardLine"],
             ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown"],
             ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear"],
-            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam"]
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam"],
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam", "DefenseTeam"]
         ]
 
         for column_list in columns_to_use:
