@@ -5,6 +5,7 @@ import logging
 
 import logger
 from DecTree import DecTree
+from Knn import Knn
 from LogReg import LogReg
 from RandForest import RandForest
 
@@ -48,6 +49,11 @@ class DataWrangler:
         dt.score()
 
 
+    def do_knn(self):
+        dt = Knn(self.X_train, self.X_test, self.y_train, self.y_test)
+        dt.score()
+
+
 
 if __name__ == "__main__":
     dw = DataWrangler()
@@ -56,5 +62,6 @@ if __name__ == "__main__":
     for ii in range(0, NUM_ITERS):
         # dw.do_logistic_regression()
         # dw.do_decision_tree()
-        dw.do_random_forest()
+        # dw.do_random_forest()
+        dw.do_knn()
         logging.info("\n")

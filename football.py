@@ -4,10 +4,13 @@ import os
 import numpy as np
 import pandas
 from sklearn import preprocessing
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
 from DecTree import DecTree
+from Knn import Knn
 from LogReg import LogReg
+from MLP import MLP
 from RandForest import RandForest
 from data.nflsavant_format import FootballHeader
 
@@ -61,7 +64,7 @@ class Football:
         except Exception as e:
             logging.warning("Error reading", exc_info=True)
 
-    def get_simplified_data(self, columns_to_use):
+    def get_simplified_data(self, columns_to_use, scale=True):
         """Turn the data into clean(er) numpy data"""
 
         logging.debug(f"Size of the original data: {self.football_data.shape}\n")
@@ -82,10 +85,12 @@ class Football:
 
         # convert to numpy
         array_x_unscaled = subset_x.to_numpy()
-
-        # scale, using numpy, to [-1,1]
-        scaler = preprocessing.StandardScaler().fit(array_x_unscaled)
-        array_x = scaler.transform(array_x_unscaled)
+        if scale:
+            # scale, using numpy, to [-1,1]
+            scaler = preprocessing.StandardScaler().fit(array_x_unscaled)
+            array_x = scaler.transform(array_x_unscaled)
+        else:
+            array_x = array_x_unscaled
         logging.debug("Scaled numpy version of X")
         logging.debug(f"{array_x}")
 
@@ -107,14 +112,15 @@ class Football:
             ["Down", "ToGo"],
             ["Down", "ToGo", "YardLine"],
             ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown"],
-            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear"],
-            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam"],
-            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "SeasonYear", "OffenseTeam", "DefenseTeam"]
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "Quarter"],
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "Quarter", "SeasonYear"],
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "Quarter", "SeasonYear", "OffenseTeam"],
+            ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "Quarter", "SeasonYear", "OffenseTeam", "DefenseTeam"]
         ]
         return columns_to_use
 
     def model_logit(self):
-         for column_list in self.get_columns_to_use():
+        for column_list in self.get_columns_to_use():
             logging.info(f"--- Column List: {column_list} --- ")
             array_x, array_y = self.get_simplified_data(column_list)
             X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
@@ -125,7 +131,7 @@ class Football:
         for column_list in self.get_columns_to_use():
             avg = 0
             # Noisy, so do multiple times
-            for ii in range(0,10):
+            for ii in range(0, 10):
                 logging.info(f"--- Column List: {column_list} --- ")
                 array_x, array_y = self.get_simplified_data(column_list)
                 X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
@@ -136,7 +142,7 @@ class Football:
             print(f"Average: {avg}")
 
     def model_random_forest(self):
-        for column_list in  self.get_columns_to_use():
+        for column_list in self.get_columns_to_use():
             avg = 0
             # Noisy, so do multiple times
             for ii in range(0, 10):
@@ -148,6 +154,65 @@ class Football:
 
             avg /= 10.
             print(f"Average: {avg}")
+
+    def model_knn(self):
+        for column_list in self.get_columns_to_use():
+            avg = 0
+            # Noisy, so do multiple times
+            for ii in range(0, 10):
+                logging.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.get_simplified_data(column_list)
+                X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
+                dt = Knn(X_train, X_test, y_train, y_test)
+                avg += dt.score()
+
+            avg /= 10.
+            print(f"Average: {avg}")
+
+    def model_mlp(self):
+        for column_list in self.get_columns_to_use():
+            avg = 0
+            # Noisy, so do multiple times
+            for ii in range(0, 10):
+                logging.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.get_simplified_data(column_list)
+                X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
+                dt = MLP(X_train, X_test, y_train, y_test)
+                avg += dt.score()
+
+            avg /= 10.
+            print(f"Average: {avg}")
+
+    def simple_model(self):
+        """ Trivial estimate, where we pass unless it is 4th and short, then run"""
+        array_x, array_y = self.get_simplified_data(["Down", "ToGo"], False)
+
+        # Pass is a '1'.  So make all ones
+        predict_y = np.ones(array_y.shape[0])
+        score = accuracy_score(array_y, predict_y)
+        logging.info(f"Simple score (all pass): {score}")
+
+        # Set short yardage to zeros
+        predict_y = np.ones(array_y.shape[0])
+        for ii in range(0, array_y.shape[0]):
+            if array_x[ii][1] < 4:
+                predict_y[ii] = 0
+            # if array_x[ii][0] == 4 and array_x[ii][1] < 4:
+            # print(f"{ii} {array_x[ii][0]} {array_x[ii][1]} {predict_y[ii]}")
+
+        score = accuracy_score(array_y, predict_y)
+        logging.info(f"Simple score (all pass except short yardage): {score}")
+        logging.info(f"Number of zeros:  {np.count_nonzero(predict_y == 0)}")
+
+        # Set late and short yardage to zeros
+        predict_y = np.ones(array_y.shape[0])
+        for ii in range(0, array_y.shape[0]):
+            if array_x[ii][0] >= 3 and array_x[ii][1] < 4:
+                predict_y[ii] = 0
+
+        score = accuracy_score(array_y, predict_y)
+        logging.info(f"Simple score (all pass except short yardage and late down): {score}")
+        logging.info(f"Number of zeros:  {np.count_nonzero(predict_y == 0)}")
 
     def print_stats(self, frame):
 
@@ -179,8 +244,16 @@ if __name__ == "__main__":
     football = Football()
     football.read_data()
 
+    football.simple_model()
     # football.print_overall_stats()
     # football.print_yearly_stats()
+    # logging.info("------------------- logit ----------------------")
     # football.model_logit()
+    # logging.info("------------------- dectree ----------------------")
     # football.model_dectree()
-    football.model_random_forest()
+    # logging.info("------------------- random forest ----------------------")
+    # football.model_random_forest()
+    # logging.info("------------------- knn ----------------------")
+    # football.model_knn()
+    # logging.info("------------------- mlp ----------------------")
+    # football.model_mlp()

@@ -1,16 +1,16 @@
 #
-# Helper class for Random Forest classifier
+# Helper class for K nearest neighbors regressor
 #
 import logging
 
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
 
 import logger
 
 logger.set_logging()
 
 
-class RandForest:
+class MLP:
 
     def __init__(self, X_train, X_test, y_train, y_test):
         self.X_train = X_train
@@ -18,7 +18,8 @@ class RandForest:
         self.y_train = y_train
         self.y_test = y_test
 
-        clf = RandomForestClassifier()
+        clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                     hidden_layer_sizes=(5, 2), random_state=1)
         self.clf = clf.fit(X_train, y_train)
 
     def score(self):
