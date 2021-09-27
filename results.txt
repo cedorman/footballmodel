@@ -1,0 +1,1721 @@
+
+
+Results from running on 2020 data only:
+
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\Scripts\python.exe C:/Users/Clark.Dorman/Documents/footballmodel/football.py
+2021-09-27T09:31:01-0400 - [INFO] - root - : Starting read data in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:40
+2021-09-27T09:31:01-0400 - [INFO] - root - : Reading file:  pbp-2020.csv in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:56
+2021-09-27T09:31:01-0400 - [INFO] - root - : Year 2020  Data: 46189 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:45
+2021-09-27T09:31:01-0400 - [INFO] - root - : Done reading data in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:50
+2021-09-27T09:31:01-0400 - [INFO] - root - : Simple score (all pass): 0.6007197681454823 in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:111
+2021-09-27T09:31:01-0400 - [INFO] - root - : Simple score (all pass except short yardage): 0.6211025828848052 in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:122
+2021-09-27T09:31:01-0400 - [INFO] - root - : Number of zeros:  4386 in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:123
+2021-09-27T09:31:01-0400 - [INFO] - root - : Simple score (all pass except short yardage and late down): 0.6009108570336635 in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:132
+2021-09-27T09:31:01-0400 - [INFO] - root - : Number of zeros:  2242 in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:133
+2021-09-27T09:31:01-0400 - [INFO] - root - : -------- Overall stats --------- in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:108
+2021-09-27T09:31:01-0400 - [INFO] - root - : Total lines:   46189 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:118
+2021-09-27T09:31:01-0400 - [INFO] - root - : --- Rushing and Passing --- in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:123
+2021-09-27T09:31:01-0400 - [INFO] - root - : Rushing: 12537 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:124
+2021-09-27T09:31:01-0400 - [INFO] - root - : Passing: 18862 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:125
+2021-09-27T09:31:01-0400 - [INFO] - root - :
+--- All Types of Plays --- in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:128
+2021-09-27T09:31:01-0400 - [INFO] - root - : PASS                    18862
+RUSH                    12537
+KICK OFF                 2771
+PUNT                     1995
+TIMEOUT                  1877
+EXTRA POINT              1347
+SACK                     1213
+FIELD GOAL                970
+SCRAMBLE                  891
+NO PLAY                   770
+QB KNEEL                  419
+TWO-POINT CONVERSION      135
+FUMBLES                    94
+EXCEPTION                  87
+CLOCK STOP                 85
+PENALTY                     5
+Name: PlayType, dtype: int64 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:130
+2021-09-27T09:31:01-0400 - [INFO] - root - : --- 2020 --- in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:112
+2021-09-27T09:31:01-0400 - [INFO] - root - : Total lines:   46189 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:118
+2021-09-27T09:31:01-0400 - [INFO] - root - : --- Rushing and Passing --- in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:123
+2021-09-27T09:31:01-0400 - [INFO] - root - : Rushing: 12537 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:124
+2021-09-27T09:31:01-0400 - [INFO] - root - : Passing: 18862 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:125
+2021-09-27T09:31:01-0400 - [INFO] - root - :
+--- All Types of Plays --- in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:128
+2021-09-27T09:31:01-0400 - [INFO] - root - : PASS                    18862
+RUSH                    12537
+KICK OFF                 2771
+PUNT                     1995
+TIMEOUT                  1877
+EXTRA POINT              1347
+SACK                     1213
+FIELD GOAL                970
+SCRAMBLE                  891
+NO PLAY                   770
+QB KNEEL                  419
+TWO-POINT CONVERSION      135
+FUMBLES                    94
+EXCEPTION                  87
+CLOCK STOP                 85
+PENALTY                     5
+Name: PlayType, dtype: int64 in C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:130
+2021-09-27T09:31:01-0400 - [INFO] - root - : ------------------- logit ---------------------- in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:145
+2021-09-27T09:31:01-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:02-0400 - [INFO] - root - : Train: 0.5991082447549664 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:02-0400 - [INFO] - root - : Train: 0.6091095602099015 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:02-0400 - [INFO] - root - : Test:  0.6071656050955414 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:02-0400 - [INFO] - root - : Test:  0.6073273956323124 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:02-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:02-0400 - [INFO] - root - : Train: 0.6267765436522155 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:02-0400 - [INFO] - root - : Train: 0.5496349640777088 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:02-0400 - [INFO] - root - : Test:  0.6321656050955414 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:02-0400 - [INFO] - root - : Test:  0.5343429412120306 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:02-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:03-0400 - [INFO] - root - : Train: 0.6010987698554878 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:03-0400 - [INFO] - root - : Train: 0.5290112502989253 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:03-0400 - [INFO] - root - : Test:  0.5992038216560509 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:03-0400 - [INFO] - root - : Test:  0.518834455598291 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:03-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:03-0400 - [INFO] - root - : Train: 0.6239101875074645 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:03-0400 - [INFO] - root - : Train: 0.6684553982250819 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:03-0400 - [INFO] - root - : Test:  0.6253184713375797 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:03-0400 - [INFO] - root - : Test:  0.6717528042328043 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:03-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:04-0400 - [INFO] - root - : Train: 0.6263784386321112 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:04-0400 - [INFO] - root - : Train: 0.6726216761161287 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:04-0400 - [INFO] - root - : Test:  0.619108280254777 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:04-0400 - [INFO] - root - : Test:  0.6620312415936653 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:04-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:04-0400 - [INFO] - root - : Train: 0.6545642740554959 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:04-0400 - [INFO] - root - : Train: 0.6965797663203033 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:04-0400 - [INFO] - root - : Test:  0.6675159235668789 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:04-0400 - [INFO] - root - : Test:  0.7056171782212981 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:04-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:05-0400 - [INFO] - root - : Train: 0.6556789681117879 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:05-0400 - [INFO] - root - : Train: 0.7001428681503592 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:05-0400 - [INFO] - root - : Test:  0.6546178343949045 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:05-0400 - [INFO] - root - : Test:  0.6961615701680772 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:05-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+2021-09-27T09:31:06-0400 - [INFO] - root - : Train: 0.6548031370675584 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:06-0400 - [INFO] - root - : Train: 0.6984510255225367 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:06-0400 - [INFO] - root - : Test:  0.655891719745223 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:06-0400 - [INFO] - root - : Test:  0.7010136461499493 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:06-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:06-0400 - [INFO] - root - : Train: 0.6569927146781321 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:06-0400 - [INFO] - root - : Train: 0.7011923772135369 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:06-0400 - [INFO] - root - : Test:  0.6484076433121019 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:06-0400 - [INFO] - root - : Test:  0.6886833588761822 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:06-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:42
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:07-0400 - [INFO] - root - : Train: 0.6525339384529639 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:49
+2021-09-27T09:31:07-0400 - [INFO] - root - : Train: 0.6979545591235485 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:54
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.6444267515923567 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:59
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.7025689894153225 in C:\Users\Clark.Dorman\Documents\footballmodel\LogReg.py:64
+2021-09-27T09:31:07-0400 - [INFO] - root - : ------------------- dectree ---------------------- in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:147
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.6038216560509554 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.596656050955414 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.604936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.5972929936305732 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.597452229299363 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.6039808917197452 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.6015923566878981 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:07-0400 - [INFO] - root - : Test:  0.6023885350318471 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:07-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6084394904458599 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.5902866242038216 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.6006847133757962
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6313694267515924 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6355095541401274 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6348726114649682 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6265923566878981 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6289808917197452 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6277070063694268 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6243630573248408 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6257961783439491 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.629936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6269108280254777 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.6292038216560509
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.6124203821656051 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.603343949044586 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:08-0400 - [INFO] - root - : Test:  0.5990445859872612 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:08-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6017515923566878 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6097133757961783 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6014331210191083 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6063694267515923 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.5918789808917198 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6065286624203822 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6015923566878981 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.603407643312102
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6461783439490446 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6369426751592356 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6409235668789809 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6380573248407644 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.64171974522293 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:09-0400 - [INFO] - root - : Test:  0.6304140127388536 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6406050955414013 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6256369426751592 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6437898089171975 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.6390445859872611
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6461783439490446 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6254777070063694 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6230891719745223 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6208598726114649 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6140127388535032 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6272292993630574 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6262738853503185 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6170382165605095 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:10-0400 - [INFO] - root - : Test:  0.6167197452229299 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6027070063694268 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.6195382165605096
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6219745222929937 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6394904458598726 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6436305732484077 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6429936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6458598726114649 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6507961783439491 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6393312101910829 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6455414012738854 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6402866242038217 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:11-0400 - [INFO] - root - : Test:  0.6398089171974523 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6452229299363057 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.643296178343949
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6222929936305732 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6292993630573248 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6378980891719745 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6399681528662421 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6179936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.621656050955414 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6187898089171975 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6253184713375797 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:12-0400 - [INFO] - root - : Test:  0.6396496815286624 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.6277547770700637
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6246815286624203 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6219745222929937 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6224522292993631 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6192675159235669 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6320063694267516 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6192675159235669 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6278662420382166 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.6281847133757962 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:13-0400 - [INFO] - root - : Test:  0.618312101910828 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6292993630573248 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6167197452229299 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.6235350318471338
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6063694267515923 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6272292993630574 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6179936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6090764331210191 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6125796178343949 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:14-0400 - [INFO] - root - : Test:  0.6199044585987261 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:15-0400 - [INFO] - root - : Test:  0.6238853503184714 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:15-0400 - [INFO] - root - : Test:  0.6140127388535032 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:15-0400 - [INFO] - root - : Test:  0.6165605095541401 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:15-0400 - [INFO] - root - : Test:  0.6127388535031847 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+Average: 0.6160350318471337
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:15-0400 - [INFO] - root - : Test:  0.6148089171974522 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:15-0400 - [INFO] - root - : Test:  0.6119426751592356 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:15-0400 - [INFO] - root - : Test:  0.6011146496815286 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:16-0400 - [INFO] - root - : Test:  0.6078025477707006 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:16-0400 - [INFO] - root - : Test:  0.6240445859872611 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:16-0400 - [INFO] - root - : Test:  0.6095541401273885 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:16-0400 - [INFO] - root - : Test:  0.6114649681528662 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:16-0400 - [INFO] - root - : Test:  0.6079617834394905 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:31:16-0400 - [INFO] - root - : Test:  0.6100318471337579 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:53
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+Average: 0.6111146496815286
+2021-09-27T09:31:17-0400 - [INFO] - root - : Test:  0.6124203821656051 in C:\Users\Clark.Dorman\Documents\footballmodel\DecTree.py:30
+2021-09-27T09:31:17-0400 - [INFO] - root - : ------------------- random forest ---------------------- in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:149
+2021-09-27T09:31:17-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:17-0400 - [INFO] - root - : Test:  0.6055732484076433 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:17-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:18-0400 - [INFO] - root - : Test:  0.5971337579617835 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:18-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:18-0400 - [INFO] - root - : Test:  0.5928343949044586 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:18-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:19-0400 - [INFO] - root - : Test:  0.6055732484076433 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:19-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:19-0400 - [INFO] - root - : Test:  0.6 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:19-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:20-0400 - [INFO] - root - : Test:  0.6035031847133758 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:20-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:20-0400 - [INFO] - root - : Test:  0.6022292993630574 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:20-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:20-0400 - [INFO] - root - : Test:  0.5988853503184713 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:20-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:21-0400 - [INFO] - root - : Test:  0.5996815286624204 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:21-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6006050955414013
+2021-09-27T09:31:21-0400 - [INFO] - root - : Test:  0.6006369426751592 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:21-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:22-0400 - [INFO] - root - : Test:  0.6232484076433121 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:22-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:23-0400 - [INFO] - root - : Test:  0.6307324840764331 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:23-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:23-0400 - [INFO] - root - : Test:  0.6243630573248408 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:23-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:24-0400 - [INFO] - root - : Test:  0.6277070063694268 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:24-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:24-0400 - [INFO] - root - : Test:  0.6310509554140128 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:24-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:25-0400 - [INFO] - root - : Test:  0.6372611464968153 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:25-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:26-0400 - [INFO] - root - : Test:  0.6355095541401274 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:26-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:26-0400 - [INFO] - root - : Test:  0.6289808917197452 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:26-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:27-0400 - [INFO] - root - : Test:  0.6261146496815286 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:27-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6294267515923567
+2021-09-27T09:31:27-0400 - [INFO] - root - : Test:  0.6292993630573248 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:27-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:28-0400 - [INFO] - root - : Test:  0.603343949044586 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:28-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:30-0400 - [INFO] - root - : Test:  0.6063694267515923 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:30-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:31-0400 - [INFO] - root - : Test:  0.6004777070063694 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:31-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:32-0400 - [INFO] - root - : Test:  0.6039808917197452 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:32-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:33-0400 - [INFO] - root - : Test:  0.6084394904458599 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:33-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:34-0400 - [INFO] - root - : Test:  0.604936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:34-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:36-0400 - [INFO] - root - : Test:  0.5942675159235669 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:36-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:37-0400 - [INFO] - root - : Test:  0.6041401273885351 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:37-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:38-0400 - [INFO] - root - : Test:  0.6090764331210191 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:38-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6037420382165606
+2021-09-27T09:31:39-0400 - [INFO] - root - : Test:  0.6023885350318471 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:39-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:40-0400 - [INFO] - root - : Test:  0.6323248407643313 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:40-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:40-0400 - [INFO] - root - : Test:  0.6313694267515924 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:40-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:41-0400 - [INFO] - root - : Test:  0.6455414012738854 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:41-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:42-0400 - [INFO] - root - : Test:  0.6429936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:42-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:42-0400 - [INFO] - root - : Test:  0.6401273885350318 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:42-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:43-0400 - [INFO] - root - : Test:  0.6401273885350318 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:43-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:44-0400 - [INFO] - root - : Test:  0.6380573248407644 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:44-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:44-0400 - [INFO] - root - : Test:  0.6442675159235669 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:44-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:45-0400 - [INFO] - root - : Test:  0.6436305732484077 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:45-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:46-0400 - [INFO] - root - : Test:  0.6375796178343949 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:46-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6396019108280255
+2021-09-27T09:31:47-0400 - [INFO] - root - : Test:  0.6179936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:47-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:49-0400 - [INFO] - root - : Test:  0.6257961783439491 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:49-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:50-0400 - [INFO] - root - : Test:  0.6300955414012739 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:50-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:51-0400 - [INFO] - root - : Test:  0.6278662420382166 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:51-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:53-0400 - [INFO] - root - : Test:  0.6275477707006369 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:53-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:54-0400 - [INFO] - root - : Test:  0.634235668789809 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:54-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:56-0400 - [INFO] - root - : Test:  0.6144904458598726 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:56-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:57-0400 - [INFO] - root - : Test:  0.6176751592356687 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:57-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:31:59-0400 - [INFO] - root - : Test:  0.6232484076433121 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:31:59-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:00-0400 - [INFO] - root - : Test:  0.6296178343949045 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:00-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6248566878980892
+2021-09-27T09:32:01-0400 - [INFO] - root - : Test:  0.6511146496815287 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:01-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:03-0400 - [INFO] - root - : Test:  0.6584394904458599 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:03-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:04-0400 - [INFO] - root - : Test:  0.6519108280254777 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:04-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:06-0400 - [INFO] - root - : Test:  0.6531847133757962 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:06-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:07-0400 - [INFO] - root - : Test:  0.6512738853503185 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:07-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:09-0400 - [INFO] - root - : Test:  0.65 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:10-0400 - [INFO] - root - : Test:  0.6439490445859872 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:12-0400 - [INFO] - root - : Test:  0.6579617834394904 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:13-0400 - [INFO] - root - : Test:  0.6504777070063694 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:14-0400 - [INFO] - root - : Test:  0.6552547770700637 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6523566878980892
+2021-09-27T09:32:16-0400 - [INFO] - root - : Test:  0.6351910828025478 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:18-0400 - [INFO] - root - : Test:  0.6504777070063694 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:19-0400 - [INFO] - root - : Test:  0.6471337579617834 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:21-0400 - [INFO] - root - : Test:  0.6356687898089172 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:21-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:23-0400 - [INFO] - root - : Test:  0.640764331210191 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:23-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:24-0400 - [INFO] - root - : Test:  0.6464968152866242 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:24-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:26-0400 - [INFO] - root - : Test:  0.6469745222929937 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:26-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:28-0400 - [INFO] - root - : Test:  0.6409235668789809 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:28-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:29-0400 - [INFO] - root - : Test:  0.6420382165605095 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:29-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:31-0400 - [INFO] - root - : Test:  0.6406050955414013 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:31-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6426273885350319
+2021-09-27T09:32:33-0400 - [INFO] - root - : Test:  0.6439490445859872 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:33-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:34-0400 - [INFO] - root - : Test:  0.6453821656050955 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:34-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:36-0400 - [INFO] - root - : Test:  0.6367834394904459 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:36-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:37-0400 - [INFO] - root - : Test:  0.6455414012738854 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:37-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:39-0400 - [INFO] - root - : Test:  0.6331210191082802 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:39-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:41-0400 - [INFO] - root - : Test:  0.6449044585987261 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:41-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:42-0400 - [INFO] - root - : Test:  0.6380573248407644 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:42-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:44-0400 - [INFO] - root - : Test:  0.6437898089171975 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:44-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:46-0400 - [INFO] - root - : Test:  0.6477707006369426 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:46-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+2021-09-27T09:32:47-0400 - [INFO] - root - : Test:  0.6474522292993631 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:47-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6426751592356688
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:32:49-0400 - [INFO] - root - : Test:  0.642515923566879 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:49-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:32:52-0400 - [INFO] - root - : Test:  0.6444267515923567 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:52-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:32:54-0400 - [INFO] - root - : Test:  0.638375796178344 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:54-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:32:56-0400 - [INFO] - root - : Test:  0.6457006369426752 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:56-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:32:58-0400 - [INFO] - root - : Test:  0.6495222929936306 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:32:58-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:00-0400 - [INFO] - root - : Test:  0.6410828025477707 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:00-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:03-0400 - [INFO] - root - : Test:  0.6495222929936306 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:03-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:05-0400 - [INFO] - root - : Test:  0.649203821656051 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:05-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:07-0400 - [INFO] - root - : Test:  0.6550955414012739 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:07-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:09-0400 - [INFO] - root - : Test:  0.6509554140127388 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+Average: 0.6466401273885352
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:11-0400 - [INFO] - root - : Test:  0.6578025477707007 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:14-0400 - [INFO] - root - : Test:  0.6603503184713376 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:16-0400 - [INFO] - root - : Test:  0.6654458598726115 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:19-0400 - [INFO] - root - : Test:  0.6490445859872611 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:21-0400 - [INFO] - root - : Test:  0.6542993630573248 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:21-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:23-0400 - [INFO] - root - : Test:  0.6512738853503185 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:23-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:26-0400 - [INFO] - root - : Test:  0.6606687898089172 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:26-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:28-0400 - [INFO] - root - : Test:  0.6571656050955414 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:28-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:30-0400 - [INFO] - root - : Test:  0.6573248407643312 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:30-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:67
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:33:33-0400 - [INFO] - root - : Test:  0.6517515923566879 in C:\Users\Clark.Dorman\Documents\footballmodel\RandForest.py:26
+2021-09-27T09:33:33-0400 - [INFO] - root - : ------------------- knn ---------------------- in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:151
+2021-09-27T09:33:33-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: 0.6565127388535033
+2021-09-27T09:33:34-0400 - [INFO] - root - : Test:  -0.17726739595148433 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:34-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:34-0400 - [INFO] - root - : Test:  -0.2679190323731826 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:34-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:35-0400 - [INFO] - root - : Test:  0.02326895300987042 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:35-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:36-0400 - [INFO] - root - : Test:  -0.014128272217049265 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:36-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:37-0400 - [INFO] - root - : Test:  -0.03706873673036104 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:37-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:37-0400 - [INFO] - root - : Test:  -0.04336204314158998 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:37-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:38-0400 - [INFO] - root - : Test:  -0.040728579650266994 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:38-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:39-0400 - [INFO] - root - : Test:  0.03175000804142947 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:39-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:40-0400 - [INFO] - root - : Test:  -0.07676672108735172 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:40-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: -0.060462410879756415
+2021-09-27T09:33:41-0400 - [INFO] - root - : Test:  -0.002402288697578081 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:41-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:41-0400 - [INFO] - root - : Test:  -0.10408733923646474 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:41-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:42-0400 - [INFO] - root - : Test:  0.0002656449324777155 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:42-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:42-0400 - [INFO] - root - : Test:  -0.14808410578000775 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:42-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:43-0400 - [INFO] - root - : Test:  -0.11284190095910795 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:43-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:44-0400 - [INFO] - root - : Test:  0.03013244045336061 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:44-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:44-0400 - [INFO] - root - : Test:  0.020975304347826018 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:44-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:45-0400 - [INFO] - root - : Test:  0.03111087709474958 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:45-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:45-0400 - [INFO] - root - : Test:  0.03205502947916494 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:45-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:46-0400 - [INFO] - root - : Test:  -0.018171726483771522 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:46-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: -0.06822371328071793
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.41359135665540614 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.052151867088661596 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.0875527447491169 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.07936952193088564 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.05701381480383949 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.08615148263753425 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.08539859554335827 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:47-0400 - [INFO] - root - : Test:  -0.06416338163936874 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:47-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:48-0400 - [INFO] - root - : Test:  -0.12157423213948326 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:48-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:48-0400 - [INFO] - root - : Test:  -0.09225181310651132 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:48-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:48-0400 - [INFO] - root - : Test:  -0.0850349688778047 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:48-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: -0.08106624225165641
+2021-09-27T09:33:48-0400 - [INFO] - root - : Test:  0.08256128328535661 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:48-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:49-0400 - [INFO] - root - : Test:  0.08442154297025217 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:49-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:50-0400 - [INFO] - root - : Test:  0.05700836275926657 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:50-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:50-0400 - [INFO] - root - : Test:  0.014306875662886576 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:50-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:51-0400 - [INFO] - root - : Test:  0.09480166837387727 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:51-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:51-0400 - [INFO] - root - : Test:  0.08422239915074314 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:51-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:52-0400 - [INFO] - root - : Test:  0.044199193548387194 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:52-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:52-0400 - [INFO] - root - : Test:  -0.0004904557231923956 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:52-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:53-0400 - [INFO] - root - : Test:  -0.03478500515610117 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:53-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:54-0400 - [INFO] - root - : Test:  0.10458911313307795 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:54-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: 0.05308349780045539
+2021-09-27T09:33:54-0400 - [INFO] - root - : Test:  0.03833186276361911 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:54-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:54-0400 - [INFO] - root - : Test:  0.02334420832299755 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:54-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:55-0400 - [INFO] - root - : Test:  0.04620502194310727 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:55-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:55-0400 - [INFO] - root - : Test:  0.043688843275539124 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:55-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:55-0400 - [INFO] - root - : Test:  0.05761687885698008 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:55-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:55-0400 - [INFO] - root - : Test:  0.08015125281912072 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:55-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:56-0400 - [INFO] - root - : Test:  0.0495745453057459 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:56-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:56-0400 - [INFO] - root - : Test:  0.048067185799722245 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:56-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:56-0400 - [INFO] - root - : Test:  0.060809429682655125 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:56-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: 0.04891033970780347
+2021-09-27T09:33:57-0400 - [INFO] - root - : Test:  0.041314168308547616 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:57-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:57-0400 - [INFO] - root - : Test:  0.07955426894555284 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:57-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:57-0400 - [INFO] - root - : Test:  0.08344842058936863 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:57-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:58-0400 - [INFO] - root - : Test:  0.08058806349206338 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:58-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:58-0400 - [INFO] - root - : Test:  0.08789409442698015 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:58-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:59-0400 - [INFO] - root - : Test:  0.08761070013702899 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:59-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:59-0400 - [INFO] - root - : Test:  0.09225715409055646 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:59-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:33:59-0400 - [INFO] - root - : Test:  0.07117830483447818 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:33:59-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:00-0400 - [INFO] - root - : Test:  0.0720396980126925 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:00-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:00-0400 - [INFO] - root - : Test:  0.08919787538836454 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:00-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:01-0400 - [INFO] - root - : Test:  0.06333541360192241 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:01-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: 0.0807103993519008
+2021-09-27T09:34:01-0400 - [INFO] - root - : Test:  0.08636867741391718 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:01-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:01-0400 - [INFO] - root - : Test:  0.08302206530731482 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:01-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:02-0400 - [INFO] - root - : Test:  0.0936655774984837 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:02-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:02-0400 - [INFO] - root - : Test:  0.09250741827304942 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:02-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:03-0400 - [INFO] - root - : Test:  0.08939636164563924 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:03-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:03-0400 - [INFO] - root - : Test:  0.09233593592327904 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:03-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:04-0400 - [INFO] - root - : Test:  0.09003630420277486 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:04-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:04-0400 - [INFO] - root - : Test:  0.09221596583088165 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:04-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:04-0400 - [INFO] - root - : Test:  0.07642992236200419 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:04-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:05-0400 - [INFO] - root - : Test:  0.10508338624338631 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:05-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: 0.09010616147007304
+2021-09-27T09:34:05-0400 - [INFO] - root - : Test:  0.09527951681590108 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:05-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:06-0400 - [INFO] - root - : Test:  0.09500502524578969 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:06-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:06-0400 - [INFO] - root - : Test:  0.08567587864651638 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:06-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:07-0400 - [INFO] - root - : Test:  0.08331292012251301 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:07-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:07-0400 - [INFO] - root - : Test:  0.10019811014391722 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:07-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:07-0400 - [INFO] - root - : Test:  0.09662369824927963 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:07-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:08-0400 - [INFO] - root - : Test:  0.09699060584653207 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:08-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:08-0400 - [INFO] - root - : Test:  0.09888452850385265 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:08-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:09-0400 - [INFO] - root - : Test:  0.0746645493494752 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+2021-09-27T09:34:09-0400 - [INFO] - root - : Test:  0.10541711867780035 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: 0.09320519516015772
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:10-0400 - [INFO] - root - : Test:  0.08314368321810173 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:10-0400 - [INFO] - root - : Test:  0.09223408234702546 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:11-0400 - [INFO] - root - : Test:  0.0977734604389563 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:11-0400 - [INFO] - root - : Test:  0.07844821164021165 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:12-0400 - [INFO] - root - : Test:  0.09412624303845629 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:12-0400 - [INFO] - root - : Test:  0.08127545423178395 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:13-0400 - [INFO] - root - : Test:  0.10342347593108103 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:13-0400 - [INFO] - root - : Test:  0.09277907787174566 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:13-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:14-0400 - [INFO] - root - : Test:  0.101072118649988 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:14-0400 - [INFO] - root - : Test:  0.0809735963153928 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+Average: 0.09052494036827428
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:15-0400 - [INFO] - root - : Test:  0.09036080315395667 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:15-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:16-0400 - [INFO] - root - : Test:  0.08295574491762336 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:16-0400 - [INFO] - root - : Test:  0.09828081469185312 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:17-0400 - [INFO] - root - : Test:  0.07815276692519602 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:17-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:18-0400 - [INFO] - root - : Test:  0.09239203335220669 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:18-0400 - [INFO] - root - : Test:  0.0829800867507885 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:19-0400 - [INFO] - root - : Test:  0.08078517906393845 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:20-0400 - [INFO] - root - : Test:  0.08586951953996336 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:20-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:34:20-0400 - [INFO] - root - : Test:  0.06377245119041564 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:20-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:81
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+Average: 0.08427783170924372
+2021-09-27T09:34:21-0400 - [INFO] - root - : Test:  0.08722891750649542 in C:\Users\Clark.Dorman\Documents\footballmodel\Knn.py:26
+2021-09-27T09:34:21-0400 - [INFO] - root - : ------------------- mlp ---------------------- in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:153
+2021-09-27T09:34:21-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:21-0400 - [INFO] - root - : Test:  0.5969745222929936 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:21-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:21-0400 - [INFO] - root - : Test:  0.5933121019108281 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:21-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:22-0400 - [INFO] - root - : Test:  0.6035031847133758 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:22-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:22-0400 - [INFO] - root - : Test:  0.5950636942675159 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:22-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:23-0400 - [INFO] - root - : Test:  0.5976114649681529 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:23-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:23-0400 - [INFO] - root - : Test:  0.6095541401273885 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:23-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:24-0400 - [INFO] - root - : Test:  0.5977707006369427 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:24-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:24-0400 - [INFO] - root - : Test:  0.6011146496815286 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:24-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:25-0400 - [INFO] - root - : Test:  0.6046178343949045 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:25-0400 - [INFO] - root - : --- Column List: ['Down'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6003662420382166
+2021-09-27T09:34:26-0400 - [INFO] - root - : Test:  0.6041401273885351 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:26-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:26-0400 - [INFO] - root - : Test:  0.6294585987261146 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:26-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:27-0400 - [INFO] - root - : Test:  0.6210191082802548 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:27-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:28-0400 - [INFO] - root - : Test:  0.6285031847133759 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:28-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:29-0400 - [INFO] - root - : Test:  0.6335987261146497 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:29-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:31-0400 - [INFO] - root - : Test:  0.6334394904458599 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:31-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:32-0400 - [INFO] - root - : Test:  0.6272292993630574 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:32-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:32-0400 - [INFO] - root - : Test:  0.6264331210191083 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:32-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:33-0400 - [INFO] - root - : Test:  0.6218152866242038 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:33-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:34-0400 - [INFO] - root - : Test:  0.6218152866242038 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:34-0400 - [INFO] - root - : --- Column List: ['ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:35-0400 - [INFO] - root - : Test:  0.6334394904458599 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:35-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6276751592356689
+2021-09-27T09:34:35-0400 - [INFO] - root - : Test:  0.5985668789808917 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:35-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:36-0400 - [INFO] - root - : Test:  0.6044585987261146 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:36-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:38-0400 - [INFO] - root - : Test:  0.6025477707006369 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:38-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:39-0400 - [INFO] - root - : Test:  0.6111464968152867 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:39-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:39-0400 - [INFO] - root - : Test:  0.6063694267515923 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:39-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:40-0400 - [INFO] - root - : Test:  0.6011146496815286 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:40-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:40-0400 - [INFO] - root - : Test:  0.6015923566878981 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:40-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:41-0400 - [INFO] - root - : Test:  0.6020700636942675 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:41-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:43-0400 - [INFO] - root - : Test:  0.6052547770700637 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:43-0400 - [INFO] - root - : --- Column List: ['YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6038057324840765
+2021-09-27T09:34:43-0400 - [INFO] - root - : Test:  0.604936305732484 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:43-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:44-0400 - [INFO] - root - : Test:  0.6320063694267516 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:44-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:46-0400 - [INFO] - root - : Test:  0.6248407643312102 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:46-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:34:47-0400 - [INFO] - root - : Test:  0.6406050955414013 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:47-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:49-0400 - [INFO] - root - : Test:  0.6286624203821656 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:49-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:51-0400 - [INFO] - root - : Test:  0.6393312101910829 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:51-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:34:53-0400 - [INFO] - root - : Test:  0.6343949044585987 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:53-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:55-0400 - [INFO] - root - : Test:  0.6353503184713376 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:55-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:34:57-0400 - [INFO] - root - : Test:  0.6393312101910829 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:57-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:58-0400 - [INFO] - root - : Test:  0.64171974522293 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:58-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:34:59-0400 - [INFO] - root - : Test:  0.6219745222929937 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:34:59-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6338216560509553
+2021-09-27T09:35:01-0400 - [INFO] - root - : Test:  0.6511146496815287 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:01-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:03-0400 - [INFO] - root - : Test:  0.6530254777070064 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:03-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:05-0400 - [INFO] - root - : Test:  0.6476114649681529 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:05-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:07-0400 - [INFO] - root - : Test:  0.6514331210191083 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:07-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:09-0400 - [INFO] - root - : Test:  0.65 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:10-0400 - [INFO] - root - : Test:  0.6469745222929937 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:10-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:12-0400 - [INFO] - root - : Test:  0.6480891719745223 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:12-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:14-0400 - [INFO] - root - : Test:  0.6431528662420383 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:16-0400 - [INFO] - root - : Test:  0.6550955414012739 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLine'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:18-0400 - [INFO] - root - : Test:  0.6458598726114649 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.649235668789809
+2021-09-27T09:35:18-0400 - [INFO] - root - : Test:  0.5937898089171975 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:18-0400 - [INFO] - root - : Test:  0.6014331210191083 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:18-0400 - [INFO] - root - : Test:  0.6070063694267516 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:18-0400 - [INFO] - root - : Test:  0.5937898089171975 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:18-0400 - [INFO] - root - : Test:  0.6079617834394905 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:19-0400 - [INFO] - root - : Test:  0.5952229299363058 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:19-0400 - [INFO] - root - : Test:  0.5886942675159236 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:19-0400 - [INFO] - root - : Test:  0.5947452229299363 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:19-0400 - [INFO] - root - : Test:  0.6105095541401274 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6
+2021-09-27T09:35:19-0400 - [INFO] - root - : Test:  0.6068471337579617 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:19-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:21-0400 - [INFO] - root - : Test:  0.6753184713375796 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:21-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:23-0400 - [INFO] - root - : Test:  0.6616242038216561 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:23-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:25-0400 - [INFO] - root - : Test:  0.6802547770700637 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:25-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:26-0400 - [INFO] - root - : Test:  0.6609872611464969 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:26-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:28-0400 - [INFO] - root - : Test:  0.6563694267515924 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:28-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:30-0400 - [INFO] - root - : Test:  0.6619426751592357 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:30-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+2021-09-27T09:35:32-0400 - [INFO] - root - : Test:  0.6679936305732485 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:32-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:34-0400 - [INFO] - root - : Test:  0.6732484076433121 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:34-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:36-0400 - [INFO] - root - : Test:  0.6654458598726115 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:36-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6668152866242039
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:38-0400 - [INFO] - root - : Test:  0.664968152866242 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:38-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:40-0400 - [INFO] - root - : Test:  0.6703821656050956 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:40-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:42-0400 - [INFO] - root - : Test:  0.6711783439490446 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:42-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:44-0400 - [INFO] - root - : Test:  0.6657643312101911 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:44-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:46-0400 - [INFO] - root - : Test:  0.6781847133757962 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:46-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:48-0400 - [INFO] - root - : Test:  0.6722929936305733 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:48-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:49-0400 - [INFO] - root - : Test:  0.6721337579617834 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:49-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:51-0400 - [INFO] - root - : Test:  0.6689490445859873 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:51-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:53-0400 - [INFO] - root - : Test:  0.6764331210191082 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:53-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:55-0400 - [INFO] - root - : Test:  0.6726114649681528 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:55-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6716560509554139
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:57-0400 - [INFO] - root - : Test:  0.6686305732484077 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:57-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:35:59-0400 - [INFO] - root - : Test:  0.6613057324840764 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:35:59-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:01-0400 - [INFO] - root - : Test:  0.6703821656050956 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:01-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:04-0400 - [INFO] - root - : Test:  0.6646496815286624 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:04-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:06-0400 - [INFO] - root - : Test:  0.674203821656051 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:06-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+2021-09-27T09:36:07-0400 - [INFO] - root - : Test:  0.6597133757961784 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:07-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:09-0400 - [INFO] - root - : Test:  0.660828025477707 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:09-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:11-0400 - [INFO] - root - : Test:  0.6611464968152866 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:11-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:14-0400 - [INFO] - root - : Test:  0.6767515923566879 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:14-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:16-0400 - [INFO] - root - : Test:  0.6668789808917197 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:16-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:18-0400 - [INFO] - root - : Test:  0.6546178343949045 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:18-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+Average: 0.6650477707006368
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:20-0400 - [INFO] - root - : Test:  0.6735668789808917 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:20-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:22-0400 - [INFO] - root - : Test:  0.6722929936305733 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:22-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:24-0400 - [INFO] - root - : Test:  0.6636942675159235 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:24-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:26-0400 - [INFO] - root - : Test:  0.6737261146496816 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:26-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:28-0400 - [INFO] - root - : Test:  0.6802547770700637 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:28-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:30-0400 - [INFO] - root - : Test:  0.6686305732484077 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:30-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:32-0400 - [INFO] - root - : Test:  0.674203821656051 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:32-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:34-0400 - [INFO] - root - : Test:  0.6855095541401274 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:34-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:36-0400 - [INFO] - root - : Test:  0.678343949044586 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+2021-09-27T09:36:36-0400 - [INFO] - root - : --- Column List: ['Down', 'ToGo', 'YardLineFixed', 'SeriesFirstDown', 'Quarter', 'SeasonYear', 'OffenseTeam', 'DefenseTeam'] ---  in C:\Users\Clark.Dorman\Documents\footballmodel\football.py:95
+C:\Users\Clark.Dorman\Documents\footballmodel\data\football_data.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  subset_x[column] = subset_x[column].factorize()[0]
+C:\Users\Clark.Dorman\Documents\footballmodel\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:500: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+2021-09-27T09:36:38-0400 - [INFO] - root - : Test:  0.6764331210191082 in C:\Users\Clark.Dorman\Documents\footballmodel\MLP.py:27
+Average: 0.6746656050955413
+
+Process finished with exit code 0

@@ -1,10 +1,21 @@
-from nflsavant_format import FootballHeader
+#
+# FootballData is a class to handle reading in, cleaning up, and
+# serving data from the nflsavant site.
+#
+
+import io
+import logging
+import os
+
+import pandas
+from sklearn import preprocessing
+
+from data.nflsavant_format import FootballHeader
 
 # Change this to get a smaller data set
-# BEGIN_YEAR = 2013
-BEGIN_YEAR = 2020
+BEGIN_YEAR = 2013
+# BEGIN_YEAR = 2020
 END_YEAR = 2020
-
 
 DATA_DIR = "./data/"
 PBP = "pbp-"
@@ -19,26 +30,28 @@ class FootballData:
         self.football_yearly = {}
         self.read_data()
 
-
     def get_yearly(self):
         return self.football_yearly
 
     def get_data(self):
-        return football_data
+        return self.football_data
 
     def read_data(self):
         logging.info("Starting read data")
-        for ii in range(BEGIN_YEAR, END_YEAR + 1):
-            filename = PBP + str(ii) + SUFFIX
-            self.football_yearly[str(ii)] = self.read_datafile(filename)
+        for ii in range(BEGIN_YEAR, END_YEAR+1):
+            ii_str = str(ii)
+            filename = PBP + ii_str + SUFFIX
+            self.football_yearly[ii_str] = self.read_datafile(filename)
+            logging.info(f"Year {ii_str}  Data: {len(self.football_yearly[ii_str])}")
             if self.football_data is None:
-                self.football_data = self.football_yearly[str(ii)]
+                self.football_data = self.football_yearly[ii_str]
             else:
-                self.football_data = self.football_data.append(self.football_yearly[str(ii)])
+                self.football_data = self.football_data.append(self.football_yearly[ii_str])
         logging.info("Done reading data")
         logging.debug(f"{self.football_data}")
 
-    def read_datafile(self, filename: str):
+    @staticmethod
+    def read_datafile(filename: str):
         try:
             logging.info(f"Reading file:  {filename}")
             with io.open(os.path.join(DATA_DIR, filename), mode='r', encoding='utf-8-sig') as data_file:
@@ -46,13 +59,9 @@ class FootballData:
                 # The data is complicated because it has mixed types (categorical, continuous,
                 # text-strings with commas, etc.).  so use pandas
                 frame = pandas.read_csv(data_file, low_memory=False)
-                # on_bad_lines ='skip',
-                # dtype=FootballHeader.get_dtypes(),
-                # error_bad_lines = False, warn_bad_lines=True)
-                # low_memory = False)
                 return frame
 
-        except Exception as e:
+        except Exception:
             logging.warning("Error reading", exc_info=True)
 
     def get_simplified_data(self, columns_to_use, scale=True):
@@ -70,15 +79,15 @@ class FootballData:
 
         # convert some columns to factors
         for column in columns_to_use:
-            if column == 'OffenseTeam' or \
-                    column == 'DefenseTeam':
+            if column == 'OffenseTeam' or column == 'DefenseTeam':
                 subset_x[column] = subset_x[column].factorize()[0]
 
         # convert to numpy
         array_x_unscaled = subset_x.to_numpy()
         if scale:
             # scale, using numpy, to [-1,1]
-            scaler = preprocessing.StandardScaler().fit(array_x_unscaled)
+            scaler = preprocessing.StandardScaler()
+            scaler = scaler.fit(array_x_unscaled)
             array_x = scaler.transform(array_x_unscaled)
         else:
             array_x = array_x_unscaled
@@ -94,3 +103,28 @@ class FootballData:
         array_y = subset_y.to_numpy().ravel()
         logging.debug(f"array y \n{array_y} \n  {array_y.shape}")
         return array_x, array_y
+
+    def print_stats(self):
+        logging.info("-------- Overall stats ---------")
+        self.print_sub_stats(self.football_data)
+
+        for ii in range(BEGIN_YEAR, END_YEAR + 1):
+            logging.info(f"--- {ii} ---")
+            self.print_sub_stats(self.football_yearly[str(ii)])
+
+    @staticmethod
+    def print_sub_stats(stats_to_print):
+        # Num lines
+        logging.info(f"Total lines:   {len(stats_to_print)}")
+
+        # Is rush or pass
+        sub_data = stats_to_print.loc[stats_to_print['PlayType'].isin(['RUSH', 'PASS'])]
+
+        logging.info("--- Rushing and Passing ---")
+        logging.info(f"Rushing: {len(sub_data[sub_data['IsRush'] == 1])}")
+        logging.info(f"Passing: {len(sub_data[sub_data['IsPass'] == 1])}")
+
+        # Count the types of plays
+        logging.info("\n--- All Types of Plays ---")
+        counts = stats_to_print[FootballHeader.PlayType.name].value_counts()
+        logging.info(f"{counts}")
