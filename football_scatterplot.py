@@ -3,13 +3,12 @@ import pandas
 import numpy as np
 
 import logger
+from data.football_data import FootballData
 from football import Football
 
-logger.getLogger().setLevel(logger.DEBUG)
-logger.debug("Staring scatterplot matrix")
+log = logger.getLogger()
 
-ft = Football()
-ft.read_data()
+ft = FootballData()
 
 rush_or_pass = ft.football_data.loc[ft.football_data['PlayType'].isin(['RUSH','PASS'])]
 subset = rush_or_pass[["Down", "ToGo", "YardLine", "YardLineFixed", "SeriesFirstDown", "Quarter", "PlayType"]]
@@ -23,4 +22,4 @@ subset['SeriesFirstDown'] =subset['SeriesFirstDown'] + np.random.rand(subset.sha
 
 sns.set_theme(style='ticks')
 sns.pairplot(subset, hue='PlayType', plot_kws=dict(alpha=0.4) )
-logger.info("scatterplot created")
+log.info("scatterplot created")

@@ -1,18 +1,13 @@
 #
 # Helper class for K nearest neighbors regressor
 #
-import logging
-
 from sklearn.neighbors import KNeighborsRegressor
-
 import logger
-
-logger.set_logging()
-
 
 class Knn:
 
     def __init__(self, X_train, X_test, y_train, y_test):
+        self.log = logger.getLogger()
         self.X_train = X_train
         self.X_test = X_test
         self.y_train = y_train
@@ -23,5 +18,5 @@ class Knn:
 
     def score(self):
         score = self.clf.score(self.X_test, self.y_test)
-        logging.info(f"Test:  {score}")
+        self.log.info(f"Test:  {score}")
         return score

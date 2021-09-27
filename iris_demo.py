@@ -1,7 +1,9 @@
 # Iris data is the famous R. A. Fisher set:  https://en.wikipedia.org/wiki/Iris_flower_data_set
 # X:  150 x 4.  Each of the 4 is a continuous variable.
 # y:  150 x 1.  Categorical:  0, 1, 2;   30 each
-import logging
+from sklearn import preprocessing
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
 
 import logger
 from DecTree import DecTree
@@ -9,18 +11,13 @@ from Knn import Knn
 from LogReg import LogReg
 from RandForest import RandForest
 
-logger.set_logging()
-
-from sklearn import preprocessing
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-
 NUM_ITERS = 5
 
 
 class DataWrangler:
 
     def __init__(self):
+        self.log = logger.getLogger()
         X, self.y = load_iris(return_X_y=True)
         # print(f"{X}")
         # print(f"{y}")
@@ -43,25 +40,22 @@ class DataWrangler:
         dt = DecTree(self.X_train, self.X_test, self.y_train, self.y_test)
         dt.score()
 
-
     def do_random_forest(self):
         dt = RandForest(self.X_train, self.X_test, self.y_train, self.y_test)
         dt.score()
-
 
     def do_knn(self):
         dt = Knn(self.X_train, self.X_test, self.y_train, self.y_test)
         dt.score()
 
 
-
 if __name__ == "__main__":
     dw = DataWrangler()
-    dw.create_train_and_test()
 
     for ii in range(0, NUM_ITERS):
+        dw.create_train_and_test()
+
         # dw.do_logistic_regression()
         # dw.do_decision_tree()
         # dw.do_random_forest()
         dw.do_knn()
-        logging.info("\n")
