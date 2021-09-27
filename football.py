@@ -183,12 +183,22 @@ class Football:
             avg /= 10.
             print(f"Average: {avg}")
 
+    def model_mlp_search_params(self):
+        cols = ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "Quarter", "SeasonYear", "OffenseTeam",
+                "DefenseTeam"]
+        array_x, array_y = self.get_simplified_data(cols)
+        X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
+        dt = MLP(X_train, X_test, y_train, y_test)
+        dt.param_search()
+
     def simple_model(self):
         """ Trivial estimate, where we pass unless it is 4th and short, then run"""
         array_x, array_y = self.get_simplified_data(["Down", "ToGo"], False)
 
         # Pass is a '1'.  So make all ones
         predict_y = np.ones(array_y.shape[0])
+
+        # If ALWAYS pass, what is the score?
         score = accuracy_score(array_y, predict_y)
         logging.info(f"Simple score (all pass): {score}")
 
@@ -197,14 +207,12 @@ class Football:
         for ii in range(0, array_y.shape[0]):
             if array_x[ii][1] < 4:
                 predict_y[ii] = 0
-            # if array_x[ii][0] == 4 and array_x[ii][1] < 4:
-            # print(f"{ii} {array_x[ii][0]} {array_x[ii][1]} {predict_y[ii]}")
 
         score = accuracy_score(array_y, predict_y)
         logging.info(f"Simple score (all pass except short yardage): {score}")
         logging.info(f"Number of zeros:  {np.count_nonzero(predict_y == 0)}")
 
-        # Set late and short yardage to zeros
+        # Set late AND short yardage to zeros
         predict_y = np.ones(array_y.shape[0])
         for ii in range(0, array_y.shape[0]):
             if array_x[ii][0] >= 3 and array_x[ii][1] < 4:
@@ -244,7 +252,7 @@ if __name__ == "__main__":
     football = Football()
     football.read_data()
 
-    football.simple_model()
+    # football.simple_model()
     # football.print_overall_stats()
     # football.print_yearly_stats()
     # logging.info("------------------- logit ----------------------")
@@ -255,5 +263,6 @@ if __name__ == "__main__":
     # football.model_random_forest()
     # logging.info("------------------- knn ----------------------")
     # football.model_knn()
-    # logging.info("------------------- mlp ----------------------")
+    logging.info("------------------- mlp ----------------------")
     # football.model_mlp()
+    football.model_mlp_search_params()
