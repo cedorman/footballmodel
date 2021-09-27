@@ -13,7 +13,7 @@ class Symptoms:
 
     def distance_to_symptoms(self, comparison_symptoms):
         """Passed in a set of symptoms, we return the distance to our symptoms"""
-            
+
 
 
 class Hygene:
