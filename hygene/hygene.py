@@ -2,6 +2,7 @@
 # Implementation of the HyGene model
 #
 
+
 class Symptoms:
     """Represents a set of symptoms or cues, represented as an array of floats"""
 
