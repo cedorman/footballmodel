@@ -1,8 +1,10 @@
 #
 # Implementation of the HyGene model from original paper
 #
+import logging
+
 import numpy as np
-from math import trunc
+
 np.random.seed(1324)
 
 
@@ -15,19 +17,40 @@ class Symptom:
     def apply_learning_rate(self, learning_rate=1.):
         """ With probability (1-learning_rate), set to zero.
         If learning_rate is high (close to 1), then prob is close to 0"""
-        num_indices = int(self.vals.size * (1.-learning_rate))
+        num_indices = int(self.vals.size * (1. - learning_rate))
         indices = np.random.choice(np.arange(self.vals.size), replace=False,
                                    size=num_indices)
         self.vals[indices] = 0
 
+    def set_values(self, vals):
+        """ For testing, explicitly set to certain values"""
+        self.vals = vals
+
     @classmethod
-    def dist(cls, a, b):
-        """Measure the distance between this symptom and another"""
-        pass
+    def activation(cls, a, b) -> float:
+        """Measure the activation between this symptom and another.   The
+        rule is that it is the number of matching values, where either
+        a or b is not zero, cubed.  """
+        len = a.vals.size
+        if len != b.vals.size:
+            logging.warning("Unequal size vectors")
+        x = 0.
+        count = 0.
+        for ii in range(len):
+            va = a.vals[ii]
+            vb = b.vals[ii]
+            if va != 0 or vb != 0:
+                count += 1
+                if va == vb:
+                    x += 1.
+        x /= count
+        x = x * x * x
+        return x
 
     def __str__(self):
         printstring = "[ " + ", ".join('{0:2d}'.format(val) for val in self.vals) + " ]"
         return printstring
+
 
 class Symptoms:
     """Represents a set of symptoms or cues"""
