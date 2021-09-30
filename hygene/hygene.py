@@ -1,10 +1,36 @@
 #
-# Implementation of the HyGene model
+# Implementation of the HyGene model from original paper
 #
+import numpy as np
+from math import trunc
+np.random.seed(1324)
 
+
+class Symptom:
+    """ Single symptom, [-1, 0, 1] with length l """
+
+    def __init__(self, length):
+        self.vals = np.random.choice([-1, 1], size=length)
+
+    def apply_learning_rate(self, learning_rate=1.):
+        """ With probability (1-learning_rate), set to zero.
+        If learning_rate is high (close to 1), then prob is close to 0"""
+        num_indices = int(self.vals.size * (1.-learning_rate))
+        indices = np.random.choice(np.arange(self.vals.size), replace=False,
+                                   size=num_indices)
+        self.vals[indices] = 0
+
+    @classmethod
+    def dist(cls, a, b):
+        """Measure the distance between this symptom and another"""
+        pass
+
+    def __str__(self):
+        printstring = "[ " + ", ".join('{0:2d}'.format(val) for val in self.vals) + " ]"
+        return printstring
 
 class Symptoms:
-    """Represents a set of symptoms or cues, represented as an array of floats"""
+    """Represents a set of symptoms or cues"""
 
     def __init__(self):
         self.symptoms = None
@@ -14,7 +40,6 @@ class Symptoms:
 
     def distance_to_symptoms(self, comparison_symptoms):
         """Passed in a set of symptoms, we return the distance to our symptoms"""
-
 
 
 class Hygene:
