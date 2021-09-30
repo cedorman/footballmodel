@@ -20,6 +20,7 @@ class TestSymptom(TestCase):
 
 class TestSymptom(TestCase):
     def test_activation(self):
+        # Test on some values from the original paper
         a = Symptom(1)
         a.set_values(np.array([0, 1, -1, 1, 0, 1, -1, 1, 0]))
         b = Symptom(1)
@@ -29,3 +30,12 @@ class TestSymptom(TestCase):
         d = Symptom.activation(a, b)
         logging.warning(f"activation: {d}")
         np.testing.assert_almost_equal(d, 0.2963, decimal=4)
+
+        b.set_values(np.array([0, 1, -1, 0, 0, 1, -1, 1, 0]))
+        np.testing.assert_almost_equal(Symptom.activation(a, b), 0.5787, decimal=4)
+
+        b.set_values(np.array([-1, 0, -1, 0, -1, 1, 1, 0, 0]))
+        np.testing.assert_almost_equal(Symptom.activation(a, b), 0.002, decimal=4)
+
+        b.set_values(np.array([-1, 0, -1, 1, -1, 1, 1, 0, 0]))
+        np.testing.assert_almost_equal(Symptom.activation(a, b), 0.0156, decimal=4)

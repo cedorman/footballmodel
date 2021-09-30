@@ -29,11 +29,12 @@ class Symptom:
     @classmethod
     def activation(cls, a, b) -> float:
         """Measure the activation between this symptom and another.   The
-        rule is that it is the number of matching values, where either
+        rule is it is sum of a-values times b-values, when either
         a or b is not zero, cubed.  """
         len = a.vals.size
         if len != b.vals.size:
             logging.warning("Unequal size vectors")
+
         x = 0.
         count = 0.
         for ii in range(len):
@@ -41,8 +42,7 @@ class Symptom:
             vb = b.vals[ii]
             if va != 0 or vb != 0:
                 count += 1
-                if va == vb:
-                    x += 1.
+                x += va * vb
         x /= count
         x = x * x * x
         return x
