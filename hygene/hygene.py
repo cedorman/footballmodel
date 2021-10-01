@@ -9,7 +9,7 @@ np.random.seed(1324)
 
 
 class Symptom:
-    """ Single symptom, [-1, 0, 1] with length l """
+    """ Single symptom, an array with values [-1, 0, 1], of length l """
 
     def __init__(self, length):
         self.vals = np.random.choice([-1, 1], size=length)
