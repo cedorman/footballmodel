@@ -2,24 +2,28 @@
 # Implementation of the HyGene model from original paper
 #
 import logging
+from typing import List
 
 import numpy as np
+
+from hygene.Cue import Cue
 
 np.random.seed(1324)
 
 
-class Cues:
-    """Represents a set of cues"""
-
-    def __init__(self):
-        self.cues = None
-
-    def set_cues(self, cues):
-        self.cues = cues
-
-    def distance_to_cues(self, comparison_cues):
-        """Passed in a set of cues, we return the distance to our cues"""
-
+#
+# class Cue:
+#     """Represents a set of cue"""
+#
+#     def __init__(self):
+#         self.cue = None
+#
+#     def set_cue(self, cue):
+#         self.cue = cue
+#
+#     def distance_to_cue(self, comparison_cue):
+#         """Passed in a set of cue, we return the distance to our cue"""
+#
 
 class Hygene:
     """HyGene model.
@@ -28,22 +32,33 @@ class Hygene:
     """
 
     def __init__(self, t_max: float, act_min: float):
-        self.cues = None
+        self.cues = None  # type: List[Cue]
         self.T_max = t_max
         self.ACT_MIN = act_min
         self.num_semantic_failures = 0
 
-    def add_episode(self, cues: Cues, result: float):
-        """Add an episodic event to memory along with the result of that
-        episodic event."""
-        pass
+        self.probe = None  # type: Cue
 
-    def add_semantic_memory(self, cues: Cues, result: float):
-        """Add information to semantic memory"""
-        pass
+    def set_probe(self, probe: Cue):
+        self.probe = probe
 
-    def receive_cues(self, cues: Cues):
-        self.cues = cues
+    def set_cues(self, new_cues: List[Cue]):
+        self.cues = new_cues
+
+    def compute_activations(self):
+        if self.probe is None:
+            logging.warning("No probe")
+
+        if self.cues is None:
+            logging.warning("No cues")
+
+        [Cue.activation(self.probe, cue) for cue in self.cues]
+
+    def get_activation(self, index):
+        return self.cues[index].get_activation()
+
+    def receive_cue(self, cue: Cue):
+        self.cue = cue
         self.activate_episodic_traces()
         self.compare_with_semantic()
         return self.generate_probability_judgement()
