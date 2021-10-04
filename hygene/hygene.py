@@ -34,12 +34,17 @@ class Hygene:
         self.T_max = t_max
         self.act_min = act_min
 
+        # Data to be set
         self.probe = None  # type: Cue
         self.cues = None  # type: List[Cue]
         self.hypos = None  # type: List[Cue]
+        self.semantic = None  # type: List[Cue]
 
+        # Data Calculated
         self.content_hypo = None
         self.content = None
+        # Note:  This is un-normed until you call norm on it
+        self.semantic_activation = None
 
     def set_probe(self, probe: Cue):
         self.probe = probe
@@ -49,6 +54,9 @@ class Hygene:
 
     def set_hypos(self, new_hypos: List[Cue]):
         self.hypos = new_hypos
+
+    def set_semantic_memory(self, new_sem: List[Cue]):
+        self.semantic = new_sem
 
     def compute_activations(self):
         if self.probe is None:
@@ -89,6 +97,16 @@ class Hygene:
         return self.content, self.content_hypo
 
     def get_unspecified_probe(self):
-        self.unspecified_probe = np.append(self.content.vals, self.content_hypo.vals)
-        self.unspecified_probe /= np.max(self.unspecified_probe)
-        return Cue(self.unspecified_probe)
+        p = np.append(self.content.vals, self.content_hypo.vals)
+        p /= np.max(p)
+        self.unspecified_probe = Cue(p)
+        return self.unspecified_probe
+
+    def get_semantic_activations(self):
+        acts = [Cue.activation(self.unspecified_probe, cue) for cue in self.semantic]
+        sumval = sum(acts)
+        for cue in self.semantic:
+            cue.act /= sumval
+            if cue.act > 0:
+                cue.activated = True
+        return [cue.act for cue in self.semantic]

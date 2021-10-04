@@ -7,7 +7,7 @@ from hygene.Cue import Cue
 from hygene.hygene import Hygene
 from tests.original_data import TEST_ACTIVATION_THRESHOLD, TEST_PROBE, TEST_DATA, \
     TEST_ACTIVATION, TEST_CONTENT_VECTOR, TEST_HYPO, TEST_CONTENT_HYPO_VECTOR, \
-    TEST_UNSPEC_PROBE
+    TEST_UNSPEC_PROBE, TEST_SEMANTIC_MEMORY, TEST_SEMANTIC_ACTIVATION_NORMED
 
 logging.basicConfig(
     level=logging.INFO,
@@ -50,3 +50,13 @@ class TestHygene(TestCase):
         logging.warning(f"Content unspec_probe: {unspec_probe}")
         for ii in range(0, len(TEST_UNSPEC_PROBE)):
             np.testing.assert_almost_equal(TEST_UNSPEC_PROBE[ii], unspec_probe.vals[ii], decimal=1)
+
+        # --------------------
+        # Calc relevant hypotheses
+        # --------------------
+        hy.set_semantic_memory([Cue(x) for x in TEST_SEMANTIC_MEMORY])
+        semantic_hypothesis_activations = hy.get_semantic_activations()
+        logging.warning(f"Hypothesis activations: {semantic_hypothesis_activations}")
+        for ii, semantic_cue in enumerate(hy.semantic):
+            act = semantic_cue.get_activation()
+            np.testing.assert_almost_equal(TEST_SEMANTIC_ACTIVATION_NORMED[ii], act, decimal=2)

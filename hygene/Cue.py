@@ -9,6 +9,7 @@ class Cue:
     """ Single cue, an array with values [-1, 0, 1], of length l """
 
     def __init__(self, init_values: List[float] = None):
+        self.vals = None    # type: np.ndarray
         if init_values is not None:
             self.vals = np.array(init_values)
         self.act = 0.
