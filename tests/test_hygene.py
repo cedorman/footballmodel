@@ -3,39 +3,50 @@ from unittest import TestCase
 
 import numpy as np
 
-from hygene.hygene import Symptom
+from hygene.Cue import Cue
+
+# This data is from the Original Paper
+TEST_CUE = [0, 1, -1, 1, 0, 1, -1, 1, 0]
+
+TESTDATA = [
+    [0, 0, -1, 1, 0, 1, -1, 0, 0],
+    [0, 1, -1, 1, 0, 1, -1, 1, 0],
+    [0, 1, -1, 0, 0, 1, -1, 1, 0],
+    [0, 1, -1, 1, 0, 1, -1, 1, 0],
+    [0, 1, -1, 1, 0, 1, -1, 1, 0],
+    [0, 0, -1, 1, 0, 1, -1, 1, 0],
+    [-1, 0, -1, 0, -1, 1, 1, 0, 0],
+    [-1, 0, -1, 1, -1, 1, 1, 0, 0],
+    [-1, 0, 0, 1, -1, 1, 1, 1, 0],
+    [1, 0, -1, -1, 1, 1, -1, 0, 0]
+]
+
+TEST_ACTIVATION = [0.2963, 1., 0.5787, 1, 1, 0.5787, 0.002, 0.0156, 0.0156, 0.0156]
 
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
-class TestSymptom(TestCase):
+class TestCue(TestCase):
 
     def test_apply_learning_rate(self):
-        symp = Symptom(10)
+        symp = Cue(10)
         symp.apply_learning_rate(.9)
-        logging.warning(f"Resulting symptom: {symp}")
+        logging.warning(f"Resulting cue: {symp}")
 
 
-class TestSymptom(TestCase):
+class TestCue(TestCase):
     def test_activation(self):
         # Test on some values from the original paper
-        a = Symptom(1)
-        a.set_values(np.array([0, 1, -1, 1, 0, 1, -1, 1, 0]))
-        b = Symptom(1)
-        b.set_values(np.array([0, 0, -1, 1, 0, 1, -1, 0, 0]))
-        logging.warning(f"a : {a}")
-        logging.warning(f"b : {b}")
-        d = Symptom.activation(a, b)
-        logging.warning(f"activation: {d}")
-        np.testing.assert_almost_equal(d, 0.2963, decimal=4)
+        a = Cue(1)
+        a.set_values(np.array(TEST_CUE))
+        logging.warning(f"Probe   : {a}")
 
-        b.set_values(np.array([0, 1, -1, 0, 0, 1, -1, 1, 0]))
-        np.testing.assert_almost_equal(Symptom.activation(a, b), 0.5787, decimal=4)
+        for ii in range(0, len(TESTDATA)):
+            b = Cue(1)
+            b.set_values(np.array(TESTDATA[ii]))
 
-        b.set_values(np.array([-1, 0, -1, 0, -1, 1, 1, 0, 0]))
-        np.testing.assert_almost_equal(Symptom.activation(a, b), 0.002, decimal=4)
-
-        b.set_values(np.array([-1, 0, -1, 1, -1, 1, 1, 0, 0]))
-        np.testing.assert_almost_equal(Symptom.activation(a, b), 0.0156, decimal=4)
+            d = Cue.activation(a, b)
+            logging.warning(f"Trace {ii} : {b}   activation: {d}")
+            np.testing.assert_almost_equal(d, TEST_ACTIVATION[ii], decimal=4)
