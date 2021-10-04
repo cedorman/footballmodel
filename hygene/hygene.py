@@ -26,24 +26,29 @@ np.random.seed(1324)
 #
 
 class Hygene:
-    """HyGene model.
-
-
+    """HyGene model
     """
 
-    def __init__(self, t_max: float, act_min: float):
-        self.cues = None  # type: List[Cue]
+    def __init__(self, t_max: float = 10, act_min: float = 0.0):
+
         self.T_max = t_max
-        self.ACT_MIN = act_min
-        self.num_semantic_failures = 0
+        self.act_min = act_min
 
         self.probe = None  # type: Cue
+        self.cues = None  # type: List[Cue]
+        self.hypos = None  # type: List[Cue]
+
+        self.content_hypo = None
+        self.content = None
 
     def set_probe(self, probe: Cue):
         self.probe = probe
 
     def set_cues(self, new_cues: List[Cue]):
         self.cues = new_cues
+
+    def set_hypos(self, new_hypos: List[Cue]):
+        self.hypos = new_hypos
 
     def compute_activations(self):
         if self.probe is None:
@@ -57,26 +62,33 @@ class Hygene:
     def get_activation(self, index):
         return self.cues[index].get_activation()
 
-    def receive_cue(self, cue: Cue):
-        self.cue = cue
-        self.activate_episodic_traces()
-        self.compare_with_semantic()
-        return self.generate_probability_judgement()
+    def calculate_content_vectors(self):
+        """Create the content vector based on the cues and the activations,
+        but only the activations above a certain level"""
 
-    def activate_episodic_traces(self):
-        pass
+        if self.cues is None:
+            logging.warning("No cues")
 
-    def compare_with_semantic(self):
-        while self.num_semantic_failures < self.T_max:
-            score, semantic_index = self.get_highest_semantic()
-            if score > self.ACT_MIN:
-                self.add_semantic_to_working_memory(semantic_index)
+        # The data component
+        self.content = Cue.zeros(len(self.cues[0].vals))
+        for cue in self.cues:
+            act = cue.get_activation()
+            if act >= self.act_min:
+                cue.activated = True
+                weighted_value = act * cue.vals
+                self.content.add_vals(weighted_value)
 
-    def generate_probability_judgement(self):
-        pass
+        # The hypothesis component
+        self.content_hypo = Cue.zeros(len(self.cues[0].vals))
+        for ii, cue in enumerate(self.hypos):
+            act = self.cues[ii].get_activation()
+            if act >= self.act_min:
+                weighted_value = act * cue.vals
+                self.content_hypo.add_vals(weighted_value)
 
-    def get_highest_semantic(self):
-        return 0., 0
+        return self.content, self.content_hypo
 
-    def add_semantic_to_working_memory(self, semantic_index):
-        pass
+    def get_unspecified_probe(self):
+        self.unspecified_probe = np.append(self.content.vals, self.content_hypo.vals)
+        self.unspecified_probe /= np.max(self.unspecified_probe)
+        return Cue(self.unspecified_probe)

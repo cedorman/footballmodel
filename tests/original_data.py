@@ -33,3 +33,9 @@ TEST_HYPO = [
 ]
 
 TEST_ACTIVATION_THRESHOLD = 0.216
+
+TEST_CONTENT_VECTOR = [ 0, 3.58, -4.5, 3.87, 0, 4.45, -4.5, 4.16, 0]
+
+TEST_CONTENT_HYPO_VECTOR = [ 3.87, -1.9, 0,0, 4.45, 4.45, -4.5, 4.45, 0 ]
+
+TEST_UNSPEC_PROBE = [ 0, 0.8, -1, 0.87, 0, 1, -1, 0.93, 0, 0.87, -0.4, 0, 0, 1, 1, -1, 1, 0]

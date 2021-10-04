@@ -8,14 +8,19 @@ import numpy as np
 class Cue:
     """ Single cue, an array with values [-1, 0, 1], of length l """
 
-    def __init__(self, init_values: List[int] = None):
+    def __init__(self, init_values: List[float] = None):
         if init_values is not None:
             self.vals = np.array(init_values)
         self.act = 0.
+        self.activated = False
 
     @classmethod
     def random(cls, length: int):
-        return cls([np.random.choice([-1, 1]) for ii in range(0, length)])
+        return cls([np.random.choice([-1., 1.]) for ii in range(0, length)])
+
+    @classmethod
+    def zeros(cls, length: int):
+        return cls(np.zeros(length))
 
     def apply_learning_rate(self, learning_rate=1.):
         """ With probability (1-learning_rate), set to zero.
@@ -62,6 +67,9 @@ class Cue:
     def get_activation(self):
         return self.act
 
+    def add_vals(self, vals_to_be_added):
+        self.vals = self.vals + vals_to_be_added
+
     def __str__(self):
-        printstring = "[ " + ", ".join('{0:2d}'.format(val) for val in self.vals) + " ]"
+        printstring = "[ " + ", ".join('{0:2f}'.format(val) for val in self.vals) + " ]"
         return printstring
