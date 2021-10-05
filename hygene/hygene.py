@@ -29,10 +29,13 @@ class Hygene:
     """HyGene model
     """
 
-    def __init__(self, t_max: float = 10, act_min: float = 0.0):
+    def __init__(self, t_max: float = 10, act_thresh: float = 0.0):
 
         self.T_max = t_max
-        self.act_min = act_min
+        self.act_thresh = act_thresh
+        self.act_min_h = 0.  # Hypothesis min activation starts at 0
+        self.retrieval_failure_limit = 1
+        self.retrieval_falures = 0
 
         # Data to be set
         self.probe = None  # type: Cue
@@ -43,8 +46,7 @@ class Hygene:
         # Data Calculated
         self.content_hypo = None
         self.content = None
-        # Note:  This is un-normed until you call norm on it
-        self.semantic_activation = None
+        self.semantic_activations = None
 
     def set_probe(self, probe: Cue):
         self.probe = probe
@@ -81,7 +83,7 @@ class Hygene:
         self.content = Cue.zeros(len(self.cues[0].vals))
         for cue in self.cues:
             act = cue.get_activation()
-            if act >= self.act_min:
+            if act >= self.act_thresh:
                 cue.activated = True
                 weighted_value = act * cue.vals
                 self.content.add_vals(weighted_value)
@@ -90,7 +92,7 @@ class Hygene:
         self.content_hypo = Cue.zeros(len(self.cues[0].vals))
         for ii, cue in enumerate(self.hypos):
             act = self.cues[ii].get_activation()
-            if act >= self.act_min:
+            if act >= self.act_thresh:
                 weighted_value = act * cue.vals
                 self.content_hypo.add_vals(weighted_value)
 
@@ -109,4 +111,26 @@ class Hygene:
             cue.act /= sumval
             if cue.act > 0:
                 cue.activated = True
-        return [cue.act for cue in self.semantic]
+            else:
+                cue.act = 0.
+                cue.act = False
+        self.semantic_activations = [cue.act for cue in self.semantic]
+        return self.semantic_activations
+
+    def sample_hypotheses(self):
+        """Sample from the activated hypotheses until reach number of failures == T_MAX  """
+
+        # Set of Leading Contenders (SOC)
+        soc = []
+        while self.retrieval_falures < self.retrieval_failure_limit:
+            hypothesis = self.pick_hypothesis()
+            if hypothesis.act > self.act_min_h or hypothesis in soc:
+                soc.append(hypothesis)
+                self.act_min_h = max(self.act_min_h, hypothesis.act)
+            else:
+               self.retrieval_falures += 1
+        return soc
+
+    def pick_hypothesis(self):
+        hypo = np.random.choice(self.semantic, p=self.semantic_activations)
+        return hypo
