@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import numpy as np
 
-from hygene.Cue import Cue
+from hygene.cue import Cue
 from hygene.hygene import Hygene
 from tests.original_data import TEST_ACTIVATION_THRESHOLD, TEST_PROBE, TEST_DATA, \
     TEST_ACTIVATION, TEST_CONTENT_VECTOR, TEST_HYPO, TEST_CONTENT_HYPO_VECTOR, \
@@ -60,3 +60,8 @@ class TestHygene(TestCase):
         for ii, semantic_cue in enumerate(hy.semantic):
             act = semantic_cue.get_activation()
             np.testing.assert_almost_equal(TEST_SEMANTIC_ACTIVATION_NORMED[ii], act, decimal=2)
+
+        # --------------------
+        # Sample
+        # --------------------
+        hy.sample_hypotheses()

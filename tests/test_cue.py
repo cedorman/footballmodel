@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import numpy as np
 
-from hygene.Cue import Cue
+from hygene.cue import Cue
 from tests.original_data import TEST_PROBE, TEST_DATA, TEST_ACTIVATION
 
 
@@ -32,6 +32,6 @@ class TestCue(TestCase):
             b = Cue(1)
             b.set_values(np.array(TEST_DATA[ii]))
 
-            d = Cue.activation(a, b)
+            d = Cue.compute_activation(a, b)
             logging.warning(f"Trace {ii} : {b}   activation: {d}")
             np.testing.assert_almost_equal(d, TEST_ACTIVATION[ii], decimal=4)

@@ -14,6 +14,7 @@ class Cue:
             self.vals = np.array(init_values)
         self.act = 0.
         self.activated = False
+        self.event = 0
 
     @classmethod
     def random(cls, length: int):
@@ -23,6 +24,13 @@ class Cue:
     def zeros(cls, length: int):
         return cls(np.zeros(length))
 
+    def set_values(self, vals):
+        """ For testing, explicitly set to certain values"""
+        if type(vals) is np.ndarray:
+            self.vals = vals
+        else:
+            self.vals = np.array(vals)
+
     def apply_learning_rate(self, learning_rate=1.):
         """ With probability (1-learning_rate), set to zero.
         If learning_rate is high (close to 1), then prob is close to 0"""
@@ -31,15 +39,11 @@ class Cue:
                                    size=num_indices)
         self.vals[indices] = 0
 
-    def set_values(self, vals):
-        """ For testing, explicitly set to certain values"""
-        if type(vals) is np.ndarray:
-            self.vals = vals
-        else:
-            self.vals = np.array(vals)
+    def set_event(self, new_event):
+        self.event = new_event
 
     @classmethod
-    def activation(cls, probe, cue) -> float:
+    def compute_activation(cls, probe, cue) -> float:
         """Measure the activation between this cue and another.   The
         rule is it is sum of a-values times b-values, when either
         a or b is not zero, cubed.  """
