@@ -25,80 +25,64 @@ class Hygene:
 
         # Data to be set
         self.probe: Cue = None
-        self.cues: List[Cue] = None
-        self.hypos: List[Cue] = None
+        self.traces: List[Cue] = None
         self.semantic: List[Cue] = None
 
         # Data Calculated
-        self.content_hypo = None
-        self.content = None
+        self.content: Cue = None
         self.semantic_activations = None
 
     def set_probe(self, probe: Cue):
         self.probe = probe
 
     def set_cues(self, new_cues: List[Cue]):
-        self.cues = new_cues
-
-    def set_hypos(self, new_hypos: List[Cue]):
-        self.hypos = new_hypos
+        self.traces = new_cues
 
     def set_semantic_memory(self, new_sem: List[Cue]):
         self.semantic = new_sem
 
     def compute_activations(self):
-        if self.probe is None:
-            logging.warning("No probe")
-
-        if self.cues is None:
-            logging.warning("No cues")
-
-        [Cue.compute_activation(self.probe, cue) for cue in self.cues]
+        [Cue.compute_activation(self.probe, trace) for trace in self.traces]
 
     def get_activation(self, index):
         '''Return the activation for a particular cue.
         NOTE:  must have called compute_activation first.'''
-        return self.cues[index].get_activation()
+        return self.traces[index].get_activation()
 
     def calculate_content_vectors(self):
         """Step 1: Create the content vector based on the cues and the
         activations, but only the activations above a certain level"""
 
-        if self.cues is None:
-            logging.warning("No cues")
+        if self.traces is None:
+            logging.warning("No traces")
 
         # The data component
-        self.content = Cue.zeros(len(self.cues[0].vals))
-        for cue in self.cues:
+        self.content = Cue.zeros(len(self.traces[0].vals), -1)
+        for cue in self.traces:
             act = cue.get_activation()
             if act >= self.act_thresh:
                 cue.activated = True
+
                 weighted_value = act * cue.vals
                 self.content.add_vals(weighted_value)
 
-        # The hypothesis component
-        self.content_hypo = Cue.zeros(len(self.cues[0].vals))
-        for ii, cue in enumerate(self.hypos):
-            act = self.cues[ii].get_activation()
-            if act >= self.act_thresh:
-                weighted_value = act * cue.vals
-                self.content_hypo.add_vals(weighted_value)
+                weighted_value = act * cue.hypo
+                self.content.add_hypos(weighted_value)
 
-        return self.content, self.content_hypo
+        return self.content
 
     def get_unspecified_probe(self):
         '''Step 2:  Extraction of unspecified probe.
         Combine content vector and hypothesis content vector
         and normalize. '''
-        p = np.append(self.content.vals, self.content_hypo.vals)
-        p /= np.max(p)
-        self.unspecified_probe = Cue(p)
+        self.unspecified_probe = self.content
+        self.unspecified_probe.normalize()
         return self.unspecified_probe
 
     def get_semantic_activations(self):
         '''Step 3:  compute _semantic_ activations.  To turn them
          into probabilities, sum the activations and normalize '''
-        acts = [Cue.compute_activation(self.unspecified_probe, cue) for cue in self.semantic]
+        acts = [Cue.compute_semantic_activation(self.unspecified_probe, cue) for cue in self.semantic]
         sumval = sum(acts)
         for cue in self.semantic:
             cue.act /= sumval
