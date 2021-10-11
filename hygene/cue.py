@@ -62,7 +62,7 @@ class Cue:
         self.event = new_event
 
     @staticmethod
-    def _compute_act(a, b) -> float:
+    def compute_act(a, b) -> float:
 
         length = a.size
         if length != b.size:
@@ -85,7 +85,7 @@ class Cue:
         """Measure the activation between this cue and another based
         on the data component.   The rule is it is sum of a-values times
         b-values, when either a or b is not zero, cubed.  """
-        act_val = Cue._compute_act(probe.vals, cue.vals)
+        act_val = Cue.compute_act(probe.vals, cue.vals)
         cue.set_activation(act_val)
         return act_val
 
@@ -95,7 +95,7 @@ class Cue:
         on both the data and hypotheses component."""
         fulla = np.append(probe.vals, probe.hypo)
         fullb = np.append(cue.vals, cue.hypo)
-        act_val = Cue._compute_act(fulla, fullb)
+        act_val = Cue.compute_act(fulla, fullb)
         cue.set_activation(act_val)
         return act_val
 

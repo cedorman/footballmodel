@@ -13,6 +13,7 @@ from tests.original_data import TEST_ACTIVATION_THRESHOLD, TEST_PROBE, TEST_DATA
 
 logging.basicConfig(
     level=logging.INFO,
+    # level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
@@ -72,3 +73,10 @@ class TestHygene(TestCase):
         # Sample
         # --------------------
         hy.sample_hypotheses()
+
+        # --------------------
+        # Calc probabilities
+        # --------------------
+        hy.set_soc([0])
+        echo_intensities= hy.get_echo_intensities()
+        logging.warning(f"Echo intensity for the first semantic memory component: {echo_intensities}")
