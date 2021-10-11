@@ -154,3 +154,10 @@ class Hygene:
             self.I_c.append(hypothesis_I_c)
 
         return self.I_c
+
+    def get_probabilities(self):
+        '''Step 6:  Normalize over the intensities of SOC to
+        make them probabilities'''
+        self.probabilities = self.I_c
+        self.probabilities /= sum(self.I_c)
+        return self.probabilities

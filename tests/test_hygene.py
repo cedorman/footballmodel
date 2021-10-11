@@ -5,11 +5,8 @@ import numpy as np
 
 from hygene.cue import Cue
 from hygene.hygene import Hygene
-from tests.original_data import TEST_ACTIVATION_THRESHOLD, TEST_PROBE, TEST_DATA, \
-    TEST_ACTIVATION, TEST_CONTENT_VECTOR, TEST_HYPO, TEST_CONTENT_HYPO_VECTOR, \
-    TEST_SEMANTIC_ACTIVATION_NORMED, \
-    TEST_EVENT, TEST_UNSPEC_PROBE_DATA, TEST_UNSPEC_PROBE_HYPO, TEST_SEMANTIC_MEMORY_DATA, TEST_SEMANTIC_MEMORY_HYPO, \
-    TEST_SEMANTIC_MEMORY_EVENT
+from tests.original_data import *
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -80,3 +77,8 @@ class TestHygene(TestCase):
         hy.set_soc([0])
         echo_intensities= hy.get_echo_intensities()
         logging.warning(f"Echo intensity for the first semantic memory component: {echo_intensities}")
+        np.testing.assert_almost_equal(echo_intensities[0], TEST_H1_ECHO_INTENSITY, decimal=3)
+
+        probs = hy.get_probabilities()
+        logging.warning(f"Probability the first semantic memory component: {probs}")
+        np.testing.assert_almost_equal(probs[0], TEST_H1_PROBABILITY)
