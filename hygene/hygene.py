@@ -17,10 +17,9 @@ class Hygene:
 
     def __init__(self, t_max: float = 10, act_thresh: float = 0.0):
 
-        self.T_max = t_max
         self.act_thresh = act_thresh  # In the paper, this is A_c,
         self.act_min_h = 0.  # Hypothesis min activation starts at 0
-        self.retrieval_failure_limit = 1
+        self.retrieval_failure_limit = t_max
         self.retrieval_falures = 0
 
         # Data to be set
@@ -126,11 +125,14 @@ class Hygene:
         while self.retrieval_falures < self.retrieval_failure_limit:
             hypothesis = self.pick_hypothesis()
             if hypothesis.act > self.act_min_h and hypothesis not in self.soc:
+                logging.debug(f"Adding hypothesis {hypothesis}")
                 self.soc.append(hypothesis)
                 self.act_min_h = max(self.act_min_h, hypothesis.act)
                 self.retrieval_falures = 0
             else:
+                logging.debug(f"Failed to add hypothesis {hypothesis} {hypothesis.act}  {self.retrieval_falures}")
                 self.retrieval_falures += 1
+        logging.debug(f"Num hypothesis in soc {len(self.soc)}")
         return self.soc
 
     def pick_hypothesis(self):

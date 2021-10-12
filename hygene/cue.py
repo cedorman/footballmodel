@@ -30,7 +30,7 @@ class Cue:
         return acue
 
     @classmethod
-    def zeros(cls, length: int, event: int):
+    def zeros(cls, length: int, event: int = 0):
         acue = cls([], [], event)
         acue.set_values(np.zeros(length))
         acue.set_hypo(np.zeros(length))
