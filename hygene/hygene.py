@@ -96,6 +96,7 @@ class Hygene:
          into probabilities, sum the activations and normalize '''
         acts = [Cue.compute_semantic_activation(self.unspecified_probe, cue)
                 for cue in self.semantic]
+        acts = [max(0, act) for act in acts]
 
         # Now, normalize them and activate the positive ones
         sumval = sum(acts)
@@ -158,6 +159,8 @@ class Hygene:
     def get_probabilities(self):
         '''Step 6:  Normalize over the intensities of SOC to
         make them probabilities'''
-        self.probabilities = self.I_c
-        self.probabilities /= sum(self.I_c)
+        self.probabilities = []
+        asum = sum(self.I_c)
+        for val in self.I_c:
+            self.probabilities.append(val / asum)
         return self.probabilities

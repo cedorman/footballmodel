@@ -16,6 +16,13 @@ class Cue:
         self.event = event
 
     @classmethod
+    def with_np(cls, init_val: np.ndarray, init_hypo: np.ndarray, event: int):
+        acue = cls([], [], event)
+        acue.set_values(init_val)
+        acue.set_hypo(init_hypo)
+        return acue
+
+    @classmethod
     def random(cls, length: int, event: int = 0):
         vals = [np.random.choice([-1., 1.]) for ii in range(0, length)]
         hypo = [np.random.choice([-1., 1.]) for ii in range(0, length)]

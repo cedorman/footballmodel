@@ -9,6 +9,8 @@ from LogReg import LogReg
 from MLP import MLP
 from RandForest import RandForest
 from data.football_data import FootballData
+from hygene.cue import Cue
+from hygene.hygene import Hygene
 
 
 class Football:
@@ -153,7 +155,87 @@ class Football:
     def print_stats(self):
         self.data.print_stats()
 
+    def run_hygene(self):
+
+        array_x, array_y = self.data.get_simplified_data(["Down"], False)
+
+        # What should this be??
+        length = 12
+        learning_rate = 0.05
+
+        # Convert Down to a Cue.
+        cues = []
+        for index, x_val in enumerate(array_x):
+            # TODO:  Generalize this to other types (ToGo, yardline, etc.)
+            down = np.full((length), -1)
+            if x_val[0] == 1:
+                down[length - 3:length] = 1
+            if x_val[0] == 2:
+                down[length - 6:length] = 1
+            if x_val[0] == 3:
+                down[length - 9:length] = 1
+            if x_val[0] == 4:
+                down[length - 12:length] = 1
+            # print(f"x_val {x_val}  down {down}")
+
+            # TODO:  Add other values
+
+            # TODO:  Should there only be 2 hypotheses??
+            if array_y[index] == 0:
+                hypo = np.full((length), 1)
+                event = 1
+            else:
+                hypo = np.full((length), -1)
+                event = 2
+
+            cue = Cue.with_np(down, hypo, event)
+
+            # Apply learning.
+            # TODO:  Figure out what learning should be.  Should
+            #  it be higher for older?
+            cue.apply_learning_rate(learning_rate)
+
+            cues.append(cue)
+
+        # Make some of them Semantic memory.
+        # TODO:  Use grouping / clustering
+        num_sem = int(.05 * len(cues))
+        sem = []
+        for ii in range(num_sem):
+            rand_index = np.random.randint(0, len(cues))
+            sem.append(cues.pop(rand_index))
+
+        # Test on the last .1 of them
+        probes = []
+        num_test = -2   # -1 * int(.1 * len(cues))
+        probes = cues[num_test:len(cues)]
+
+        # Print sizes
+        self.log.info(f"Size of cues: {len(cues)}")
+        self.log.info(f"Size of sema: {len(sem)}")
+        self.log.info(f"Num probes: {len(probes)}")
+
+        hygene = Hygene()
+        hygene.set_cues(cues)
+        hygene.set_semantic_memory(sem)
+
+        for probe in probes:
+            hygene.set_probe(probe)
+            hygene.compute_activations()
+            hygene.calculate_content_vectors()
+            hygene.get_unspecified_probe()
+            hygene.get_semantic_activations()
+            hygene.sample_hypotheses()
+            hygene.get_echo_intensities()
+            probs = hygene.get_probabilities()
+            print(f"probs: {probs}   {probe.event}")
+
+
+
+
+
 
 if __name__ == "__main__":
     football = Football()
-    football.run_all()
+    # football.run_all()
+    football.run_hygene()

@@ -2,6 +2,11 @@
 # FootballData is a class to handle reading in, cleaning up, and
 # serving data from the nflsavant site.
 #
+# It will return the array_x data according to the columns that are passed,
+# see nflsavant_format for the names of the columns.
+#
+# array_y is rush or pass:    RUSH==0, PASS == 1
+
 
 import io
 import os
@@ -14,8 +19,8 @@ from data.nflsavant_format import FootballHeader
 
 # Change this to get a smaller data set
 # BEGIN_YEAR = 2013
-BEGIN_YEAR = 2020
-END_YEAR = 2020
+BEGIN_YEAR = 2021
+END_YEAR = 2021
 
 DATA_DIR = "./data/"
 PBP = "pbp-"
