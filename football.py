@@ -156,12 +156,14 @@ class Football:
         self.data.print_stats()
 
     def run_hygene(self):
-
+        self.log.info("---------------------------------------------- Football Data -----------------------------------------")
         array_x, array_y = self.data.get_simplified_data(["Down"], False)
 
         # What should this be??
         length = 12
-        learning_rate = 0.05
+        learning_rate = 0.95
+
+        self.log.info("---------------------------------------------- Setting hygene data -----------------------------------------")
 
         # Convert Down to a Cue.
         cues = []
@@ -212,14 +214,16 @@ class Football:
 
         # Print sizes
         self.log.info(f"Size of cues: {len(cues)}")
-        self.log.info(f"Size of sema: {len(sem)}")
+        self.log.info(f"Size of semantic memory: {len(sem)}")
         self.log.info(f"Num probes: {len(probes)}")
 
         hygene = Hygene()
-        hygene.set_cues(cues)
+        hygene.set_traces(cues)
         hygene.set_semantic_memory(sem)
 
         for probe in probes:
+            self.log.info("---------------------------------------------- New Probe -----------------------------------------")
+
             hygene.set_probe(probe)
             hygene.compute_activations()
             hygene.calculate_content_vectors()
@@ -228,7 +232,8 @@ class Football:
             hygene.sample_hypotheses()
             hygene.get_echo_intensities()
             probs = hygene.get_probabilities()
-            print(f"probs: {probs}   {probe.event}")
+            highest_event = hygene.get_highest_prob_event()
+            print(f"probe {probe}. GT: {probe.event}  probs: {probs}  HighestEvent: {highest_event}")
 
 
 

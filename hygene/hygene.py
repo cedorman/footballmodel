@@ -36,8 +36,8 @@ class Hygene:
     def set_probe(self, probe: Cue):
         self.probe = probe
 
-    def set_cues(self, new_cues: List[Cue]):
-        self.traces = new_cues
+    def set_traces(self, new_traces: List[Cue]):
+        self.traces = new_traces
 
     def set_semantic_memory(self, new_sem: List[Cue]):
         self.semantic = new_sem
@@ -53,6 +53,7 @@ class Hygene:
         return self.semantic[index]
 
     def compute_activations(self):
+        logging.debug("Computing activations for all the traces")
         [Cue.compute_activation(self.probe, trace) for trace in self.traces]
 
     def get_activation(self, index: int):
@@ -122,20 +123,23 @@ class Hygene:
 
         # Set of Leading Contenders (SOC)
         self.soc = []
+        self.retrieval_falures = 0
         while self.retrieval_falures < self.retrieval_failure_limit:
             hypothesis = self.pick_hypothesis()
             if hypothesis.act > self.act_min_h and hypothesis not in self.soc:
-                logging.debug(f"Adding hypothesis {hypothesis}")
                 self.soc.append(hypothesis)
                 self.act_min_h = max(self.act_min_h, hypothesis.act)
                 self.retrieval_falures = 0
+                logging.debug(f"Adding hypothesis {hypothesis}: {hypothesis.act} ")
             else:
-                logging.debug(f"Failed to add hypothesis {hypothesis} {hypothesis.act}  {self.retrieval_falures}")
+                logging.debug(f"Failed to add hypothesis {hypothesis}: {hypothesis.act} fails: {self.retrieval_falures}")
                 self.retrieval_falures += 1
-        logging.debug(f"Num hypothesis in soc {len(self.soc)}")
+        logging.debug(f"Num hypothesis in soc: {len(self.soc)}")
         return self.soc
 
     def pick_hypothesis(self):
+        hypo_index = np.random.choice(range(0, len(self.semantic_activations)), p=self.semantic_activations)
+        logging.debug(f"Hypo index in pick: {hypo_index} from probs:   {self.semantic_activations}")
         hypo = np.random.choice(self.semantic, p=self.semantic_activations)
         return hypo
 
@@ -166,3 +170,8 @@ class Hygene:
         for val in self.I_c:
             self.probabilities.append(val / asum)
         return self.probabilities
+
+    def get_highest_prob_event(self):
+        '''Get the event of the SOC with highest prob'''
+        index_of_highest = self.probabilities.index(max(self.probabilities))
+        return self.soc[index_of_highest].event

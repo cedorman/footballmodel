@@ -19,7 +19,7 @@ class TestHygene(TestCase):
     def test_hygene(self):
         hy = Hygene(0, TEST_ACTIVATION_THRESHOLD)
         hy.set_probe(Cue.probe(TEST_PROBE))
-        hy.set_cues([Cue(TEST_DATA[ii], TEST_HYPO[ii], TEST_EVENT[ii]) for ii in range(len(TEST_DATA))])
+        hy.set_traces([Cue(TEST_DATA[ii], TEST_HYPO[ii], TEST_EVENT[ii]) for ii in range(len(TEST_DATA))])
         hy.compute_activations()
 
         # --------------------

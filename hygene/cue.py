@@ -59,7 +59,8 @@ class Cue:
 
     def apply_learning_rate(self, learning_rate=1.):
         """ With probability (1-learning_rate), set to zero.
-        If learning_rate is high (close to 1), then prob is close to 0"""
+        If learning_rate is high (close to 1), then prob is close to 0
+        and will keep more data."""
         num_indices = int(self.vals.size * (1. - learning_rate))
         indices = np.random.choice(np.arange(self.vals.size), replace=False,
                                    size=num_indices)
@@ -70,7 +71,7 @@ class Cue:
 
     @staticmethod
     def compute_act(a, b) -> float:
-
+        
         length = a.size
         if length != b.size:
             logging.warning("Unequal size vectors")
@@ -85,6 +86,7 @@ class Cue:
                 x += va * vb
         x /= count
         x = x * x * x
+        logging.debug(f"activation: {a} {b} -> {x}")
         return x
 
     @classmethod
@@ -121,7 +123,7 @@ class Cue:
         self.hypo = self.hypo + hypos_to_be_added
 
     def __str__(self):
-        printstring = "[ " + ", ".join('{0:2f}'.format(val) for val in self.vals) + " ]"
+        printstring = "[ " + ", ".join('{0:2.2f}'.format(val) for val in self.vals) + " ]"
         return printstring
 
     def normalize(self):
