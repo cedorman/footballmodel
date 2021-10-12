@@ -12,6 +12,11 @@ from data.football_data import FootballData
 from hygene.cue import Cue
 from hygene.hygene import Hygene
 
+# What should this be??
+FEATURE_LENGTH = 12
+LEARNING_RATE = 1.   # 0.95
+
+
 
 class Football:
 
@@ -155,47 +160,56 @@ class Football:
     def print_stats(self):
         self.data.print_stats()
 
+    def get_feature_for_down(self, down):
+        down_feat = np.full((FEATURE_LENGTH), -1)
+        if down == 1:
+            down_feat[FEATURE_LENGTH - 3:FEATURE_LENGTH] = 1
+        if  down == 2:
+            down_feat[FEATURE_LENGTH - 6:FEATURE_LENGTH] = 1
+        if down == 3:
+            down_feat[FEATURE_LENGTH - 9:FEATURE_LENGTH] = 1
+        if down== 4:
+            down_feat[FEATURE_LENGTH - 12:FEATURE_LENGTH] = 1
+        return down_feat
+        # print(f"x_val {x_val}  down {down}")
+
+    def get_feature_for_togo(self, togo):
+        togo_feat = np.full((FEATURE_LENGTH), -1)
+        if togo > 30:
+            togo = 30
+        num_to_set = int(FEATURE_LENGTH * togo / 30.)
+        togo_feat[num_to_set:FEATURE_LENGTH] = 1
+        return togo_feat
+
     def run_hygene(self):
         self.log.info("---------------------------------------------- Football Data -----------------------------------------")
-        array_x, array_y = self.data.get_simplified_data(["Down"], False)
-
-        # What should this be??
-        length = 12
-        learning_rate = 0.95
+        array_x, array_y = self.data.get_simplified_data(["Down", "ToGo"], False)
 
         self.log.info("---------------------------------------------- Setting hygene data -----------------------------------------")
 
         # Convert Down to a Cue.
         cues = []
-        for index, x_val in enumerate(array_x):
+        for index, x_values in enumerate(array_x):
             # TODO:  Generalize this to other types (ToGo, yardline, etc.)
-            down = np.full((length), -1)
-            if x_val[0] == 1:
-                down[length - 3:length] = 1
-            if x_val[0] == 2:
-                down[length - 6:length] = 1
-            if x_val[0] == 3:
-                down[length - 9:length] = 1
-            if x_val[0] == 4:
-                down[length - 12:length] = 1
-            # print(f"x_val {x_val}  down {down}")
+            down_feature = self.get_feature_for_down(x_values[0])
+            togo = self.get_feature_for_togo(x_values[1])
 
             # TODO:  Add other values
 
             # TODO:  Should there only be 2 hypotheses??
             if array_y[index] == 0:
-                hypo = np.full((length), 1)
+                hypo = np.full((FEATURE_LENGTH), 1)
                 event = 1
             else:
-                hypo = np.full((length), -1)
+                hypo = np.full((FEATURE_LENGTH), -1)
                 event = 2
 
-            cue = Cue.with_np(down, hypo, event)
+            cue = Cue.with_np(down_feature, hypo, event)
 
             # Apply learning.
             # TODO:  Figure out what learning should be.  Should
             #  it be higher for older?
-            cue.apply_learning_rate(learning_rate)
+            cue.apply_learning_rate(LEARNING_RATE)
 
             cues.append(cue)
 

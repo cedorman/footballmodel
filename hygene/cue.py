@@ -61,6 +61,9 @@ class Cue:
         """ With probability (1-learning_rate), set to zero.
         If learning_rate is high (close to 1), then prob is close to 0
         and will keep more data."""
+        if learning_rate == 1.0:
+            return
+            
         num_indices = int(self.vals.size * (1. - learning_rate))
         indices = np.random.choice(np.arange(self.vals.size), replace=False,
                                    size=num_indices)
