@@ -18,9 +18,9 @@ import logger
 from data.nflsavant_format import FootballHeader
 
 # Change this to get a smaller data set
-# BEGIN_YEAR = 2013
-BEGIN_YEAR = 2021
-END_YEAR = 2021
+BEGIN_YEAR = 2013
+# BEGIN_YEAR = 2020
+END_YEAR = 2020
 
 DATA_DIR = "./data/"
 PBP = "pbp-"

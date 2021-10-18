@@ -1,7 +1,7 @@
 import logging
 
-# LOG_LEVEL = logging.INFO
-LOG_LEVEL = logging.DEBUG
+LOG_LEVEL = logging.INFO
+# LOG_LEVEL = logging.DEBUG
 
 logging_set = False
 

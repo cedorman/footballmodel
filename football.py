@@ -3,6 +3,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
 import logger
+import time
 from DecTree import DecTree
 from Knn import Knn
 from LogReg import LogReg
@@ -22,6 +23,8 @@ class Football:
 
     def __init__(self):
         self.log = logger.getLogger()
+        self.starttime = time.time()
+        self.log.info(f"Starting {self.starttime}")
         self.data = FootballData()
 
     def run_all(self):
@@ -185,6 +188,9 @@ class Football:
         self.log.info("---------------------------------------------- Football Data -----------------------------------------")
         array_x, array_y = self.data.get_simplified_data(["Down", "ToGo"], False)
 
+        array_x = array_x[0:1000]
+        array_y = array_y[0:1000]
+
         self.log.info("---------------------------------------------- Setting hygene data -----------------------------------------")
 
         # Convert Down to a Cue.
@@ -192,9 +198,9 @@ class Football:
         for index, x_values in enumerate(array_x):
             # TODO:  Generalize this to other types (ToGo, yardline, etc.)
             down_feature = self.get_feature_for_down(x_values[0])
-            togo = self.get_feature_for_togo(x_values[1])
-
-            # TODO:  Add other values
+            combined = down_feature
+            # togo = self.get_feature_for_togo(x_values[1])
+            # combined = np.append(down_feature, togo)
 
             # TODO:  Should there only be 2 hypotheses??
             if array_y[index] == 0:
@@ -204,7 +210,7 @@ class Football:
                 hypo = np.full((FEATURE_LENGTH), -1)
                 event = 2
 
-            cue = Cue.with_np(down_feature, hypo, event)
+            cue = Cue.with_np(combined, hypo, event)
 
             # Apply learning.
             # TODO:  Figure out what learning should be.  Should
@@ -223,7 +229,7 @@ class Football:
 
         # Test on the last .1 of them
         probes = []
-        num_test = -2   # -1 * int(.1 * len(cues))
+        num_test = -1 * int(.1 * len(cues))
         probes = cues[num_test:len(cues)]
 
         # Print sizes
@@ -234,6 +240,9 @@ class Football:
         hygene = Hygene()
         hygene.set_traces(cues)
         hygene.set_semantic_memory(sem)
+
+        right = 0
+        wrong = 0
 
         for probe in probes:
             self.log.info("---------------------------------------------- New Probe -----------------------------------------")
@@ -248,6 +257,13 @@ class Football:
             probs = hygene.get_probabilities()
             highest_event = hygene.get_highest_prob_event()
             print(f"probe {probe}. GT: {probe.event}  probs: {probs}  HighestEvent: {highest_event}")
+
+            if probe.event == highest_event:
+                right += 1
+            else:
+                wrong += 1
+        
+        print(f"right {right}  wrong {wrong}  percent {(right/(right+wrong))}")
 
 
 
