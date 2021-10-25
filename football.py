@@ -1,110 +1,48 @@
-import io
-import os
-
 import numpy as np
-import pandas
-from sklearn import preprocessing
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
+import logger
+import time
 from DecTree import DecTree
 from Knn import Knn
 from LogReg import LogReg
 from MLP import MLP
 from RandForest import RandForest
-from data.nflsavant_format import FootballHeader
+from data.football_data import FootballData
+from hygene.cue import Cue
+from hygene.hygene import Hygene
 
-DATA_DIR = "./data/"
-PBP = "pbp-"
-SUFFIX = ".csv"
+# What should this be??
+FEATURE_LENGTH = 12
+LEARNING_RATE = 1.   # 0.95
 
-# BEGIN_YEAR = 2013
-BEGIN_YEAR = 2020
-END_YEAR = 2020
-
-import logging
-import logger
-
-logger.set_logging()
 
 
 class Football:
 
     def __init__(self):
+        self.log = logger.getLogger()
+        self.starttime = time.time()
+        self.log.info(f"Starting {self.starttime}")
+        self.data = FootballData()
 
-        self.football_data = None
-        self.football_yearly = {}
+    def run_all(self):
+        self.simple_model()
+        self.print_stats()
+        self.log.info("------------------- logit ----------------------")
+        self.model_logit()
+        self.log.info("------------------- dectree ----------------------")
+        self.model_dectree()
+        self.log.info("------------------- random forest ----------------------")
+        self.model_random_forest()
+        self.log.info("------------------- knn ----------------------")
+        self.model_knn()
+        self.log.info("------------------- mlp ----------------------")
+        self.model_mlp_search_params()
 
-    def read_data(self):
-        logging.info("Starting read data")
-        for ii in range(BEGIN_YEAR, END_YEAR + 1):
-            filename = PBP + str(ii) + SUFFIX
-            self.football_yearly[str(ii)] = self.read_datafile(filename)
-            if self.football_data is None:
-                self.football_data = self.football_yearly[str(ii)]
-            else:
-                self.football_data = self.football_data.append(self.football_yearly[str(ii)])
-        logging.info("Done reading data")
-        logging.debug(f"{self.football_data}")
-
-    def read_datafile(self, filename: str):
-        try:
-            logging.info(f"Reading file:  {filename}")
-            with io.open(os.path.join(DATA_DIR, filename), mode='r', encoding='utf-8-sig') as data_file:
-
-                # The data is complicated because it has mixed types (categorical, continuous,
-                # text-strings with commas, etc.).  so use pandas
-                frame = pandas.read_csv(data_file, low_memory=False)
-                # on_bad_lines ='skip',
-                # dtype=FootballHeader.get_dtypes(),
-                # error_bad_lines = False, warn_bad_lines=True)
-                # low_memory = False)
-                return frame
-
-        except Exception as e:
-            logging.warning("Error reading", exc_info=True)
-
-    def get_simplified_data(self, columns_to_use, scale=True):
-        """Turn the data into clean(er) numpy data"""
-
-        logging.debug(f"Size of the original data: {self.football_data.shape}\n")
-
-        # Get data where PlayType is Rush or Pass; not kickoff, punt, field goal, kneel, etc.  
-        rush_or_pass = self.football_data.loc[self.football_data['PlayType'].isin(['RUSH', 'PASS'])]
-        logging.debug("Rush or Pass Data")
-        logging.debug(f"{rush_or_pass}\n")
-
-        # Only columns that we want to use
-        subset_x = rush_or_pass[columns_to_use]
-
-        # convert some columns to factors
-        for column in columns_to_use:
-            if column == 'OffenseTeam' or \
-                    column == 'DefenseTeam':
-                subset_x[column] = subset_x[column].factorize()[0]
-
-        # convert to numpy
-        array_x_unscaled = subset_x.to_numpy()
-        if scale:
-            # scale, using numpy, to [-1,1]
-            scaler = preprocessing.StandardScaler().fit(array_x_unscaled)
-            array_x = scaler.transform(array_x_unscaled)
-        else:
-            array_x = array_x_unscaled
-        logging.debug("Scaled numpy version of X")
-        logging.debug(f"{array_x}")
-
-        # get y as 0==RUSH 1==PASS
-        subset_y = (rush_or_pass['PlayType'] == 'PASS').astype(int)
-        logging.debug("Subset Y")
-        logging.debug(f"{subset_y}")
-
-        # Turn the 2d array into 1d array
-        array_y = subset_y.to_numpy().ravel()
-        logging.debug(f"array y \n{array_y} \n  {array_y.shape}")
-        return array_x, array_y
-
-    def get_columns_to_use(self):
+    @staticmethod
+    def get_columns_to_use():
         columns_to_use = [
             ["Down"],
             ["ToGo"],
@@ -121,8 +59,8 @@ class Football:
 
     def model_logit(self):
         for column_list in self.get_columns_to_use():
-            logging.info(f"--- Column List: {column_list} --- ")
-            array_x, array_y = self.get_simplified_data(column_list)
+            self.log.info(f"--- Column List: {column_list} --- ")
+            array_x, array_y = self.data.get_simplified_data(column_list)
             X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
             lr = LogReg(X_train, X_test, y_train, y_test)
             lr.score()
@@ -132,8 +70,8 @@ class Football:
             avg = 0
             # Noisy, so do multiple times
             for ii in range(0, 10):
-                logging.info(f"--- Column List: {column_list} --- ")
-                array_x, array_y = self.get_simplified_data(column_list)
+                self.log.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.data.get_simplified_data(column_list)
                 X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
                 dt = DecTree(X_train, X_test, y_train, y_test)
                 avg += dt.score()
@@ -146,8 +84,8 @@ class Football:
             avg = 0
             # Noisy, so do multiple times
             for ii in range(0, 10):
-                logging.info(f"--- Column List: {column_list} --- ")
-                array_x, array_y = self.get_simplified_data(column_list)
+                self.log.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.data.get_simplified_data(column_list)
                 X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
                 dt = RandForest(X_train, X_test, y_train, y_test)
                 avg += dt.score()
@@ -160,8 +98,8 @@ class Football:
             avg = 0
             # Noisy, so do multiple times
             for ii in range(0, 10):
-                logging.info(f"--- Column List: {column_list} --- ")
-                array_x, array_y = self.get_simplified_data(column_list)
+                self.log.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.data.get_simplified_data(column_list)
                 X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
                 dt = Knn(X_train, X_test, y_train, y_test)
                 avg += dt.score()
@@ -174,8 +112,8 @@ class Football:
             avg = 0
             # Noisy, so do multiple times
             for ii in range(0, 10):
-                logging.info(f"--- Column List: {column_list} --- ")
-                array_x, array_y = self.get_simplified_data(column_list)
+                self.log.info(f"--- Column List: {column_list} --- ")
+                array_x, array_y = self.data.get_simplified_data(column_list)
                 X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
                 dt = MLP(X_train, X_test, y_train, y_test)
                 avg += dt.score()
@@ -186,21 +124,21 @@ class Football:
     def model_mlp_search_params(self):
         cols = ["Down", "ToGo", "YardLineFixed", "SeriesFirstDown", "Quarter", "SeasonYear", "OffenseTeam",
                 "DefenseTeam"]
-        array_x, array_y = self.get_simplified_data(cols)
+        array_x, array_y = self.data.get_simplified_data(cols)
         X_train, X_test, y_train, y_test = train_test_split(array_x, array_y, test_size=0.2)
         dt = MLP(X_train, X_test, y_train, y_test)
         dt.param_search()
 
     def simple_model(self):
         """ Trivial estimate, where we pass unless it is 4th and short, then run"""
-        array_x, array_y = self.get_simplified_data(["Down", "ToGo"], False)
+        array_x, array_y = self.data.get_simplified_data(["Down", "ToGo"], False)
 
         # Pass is a '1'.  So make all ones
         predict_y = np.ones(array_y.shape[0])
 
         # If ALWAYS pass, what is the score?
         score = accuracy_score(array_y, predict_y)
-        logging.info(f"Simple score (all pass): {score}")
+        self.log.info(f"Simple score (all pass): {score}")
 
         # Set short yardage to zeros
         predict_y = np.ones(array_y.shape[0])
@@ -209,8 +147,8 @@ class Football:
                 predict_y[ii] = 0
 
         score = accuracy_score(array_y, predict_y)
-        logging.info(f"Simple score (all pass except short yardage): {score}")
-        logging.info(f"Number of zeros:  {np.count_nonzero(predict_y == 0)}")
+        self.log.info(f"Simple score (all pass except short yardage): {score}")
+        self.log.info(f"Number of zeros:  {np.count_nonzero(predict_y == 0)}")
 
         # Set late AND short yardage to zeros
         predict_y = np.ones(array_y.shape[0])
@@ -219,50 +157,120 @@ class Football:
                 predict_y[ii] = 0
 
         score = accuracy_score(array_y, predict_y)
-        logging.info(f"Simple score (all pass except short yardage and late down): {score}")
-        logging.info(f"Number of zeros:  {np.count_nonzero(predict_y == 0)}")
+        self.log.info(f"Simple score (all pass except short yardage and late down): {score}")
+        self.log.info(f"Number of zeros:  {np.count_nonzero(predict_y == 0)}")
 
-    def print_stats(self, frame):
+    def print_stats(self):
+        self.data.print_stats()
 
-        # Num lines
-        logging.info(f"Total:   {len(frame)}")
+    def get_feature_for_down(self, down):
+        down_feat = np.full((FEATURE_LENGTH), -1)
+        if down == 1:
+            down_feat[FEATURE_LENGTH - 3:FEATURE_LENGTH] = 1
+        if  down == 2:
+            down_feat[FEATURE_LENGTH - 6:FEATURE_LENGTH] = 1
+        if down == 3:
+            down_feat[FEATURE_LENGTH - 9:FEATURE_LENGTH] = 1
+        if down== 4:
+            down_feat[FEATURE_LENGTH - 12:FEATURE_LENGTH] = 1
+        return down_feat
+        # print(f"x_val {x_val}  down {down}")
 
-        # Overall probability of run, pass, or 'other'
-        non_zeros = np.count_nonzero(frame, axis=0)
+    def get_feature_for_togo(self, togo):
+        togo_feat = np.full((FEATURE_LENGTH), -1)
+        if togo > 30:
+            togo = 30
+        num_to_set = int(FEATURE_LENGTH * togo / 30.)
+        togo_feat[num_to_set:FEATURE_LENGTH] = 1
+        return togo_feat
 
-        logging.info("--- Rushing and Passing ---")
-        logging.info(f"Rushing: {non_zeros[FootballHeader.IsRush]}")
-        logging.info(f"Passing: {non_zeros[FootballHeader.IsPass]}")
+    def run_hygene(self):
+        self.log.info("---------------------------------------------- Football Data -----------------------------------------")
+        array_x, array_y = self.data.get_simplified_data(["Down", "ToGo"], False)
 
-        # Count the types of plays
-        logging.info("\n--- Types of Plays ---")
-        counts = frame[FootballHeader.PlayType.name].value_counts()
-        logging.info(f"{counts}")
+        array_x = array_x[0:1000]
+        array_y = array_y[0:1000]
 
-    def print_yearly_stats(self):
-        for ii in range(BEGIN_YEAR, END_YEAR + 1):
-            logging.info(f"\n--- {ii} ---")
-            self.print_stats(self.football_yearly[str(ii)])
+        self.log.info("---------------------------------------------- Setting hygene data -----------------------------------------")
 
-    def print_overall_stats(self):
-        self.print_stats(self.football_data)
+        # Convert Down to a Cue.
+        cues = []
+        for index, x_values in enumerate(array_x):
+            # TODO:  Generalize this to other types (ToGo, yardline, etc.)
+            down_feature = self.get_feature_for_down(x_values[0])
+            combined = down_feature
+            # togo = self.get_feature_for_togo(x_values[1])
+            # combined = np.append(down_feature, togo)
+
+            # TODO:  Should there only be 2 hypotheses??
+            if array_y[index] == 0:
+                hypo = np.full((FEATURE_LENGTH), 1)
+                event = 1
+            else:
+                hypo = np.full((FEATURE_LENGTH), -1)
+                event = 2
+
+            cue = Cue.with_np(combined, hypo, event)
+
+            # Apply learning.
+            # TODO:  Figure out what learning should be.  Should
+            #  it be higher for older?
+            cue.apply_learning_rate(LEARNING_RATE)
+
+            cues.append(cue)
+
+        # Make some of them Semantic memory.
+        # TODO:  Use grouping / clustering
+        num_sem = int(.05 * len(cues))
+        sem = []
+        for ii in range(num_sem):
+            rand_index = np.random.randint(0, len(cues))
+            sem.append(cues.pop(rand_index))
+
+        # Test on the last .1 of them
+        probes = []
+        num_test = -1 * int(.1 * len(cues))
+        probes = cues[num_test:len(cues)]
+
+        # Print sizes
+        self.log.info(f"Size of cues: {len(cues)}")
+        self.log.info(f"Size of semantic memory: {len(sem)}")
+        self.log.info(f"Num probes: {len(probes)}")
+
+        hygene = Hygene()
+        hygene.set_traces(cues)
+        hygene.set_semantic_memory(sem)
+
+        right = 0
+        wrong = 0
+
+        for probe in probes:
+            self.log.info("---------------------------------------------- New Probe -----------------------------------------")
+
+            hygene.set_probe(probe)
+            hygene.compute_activations()
+            hygene.calculate_content_vectors()
+            hygene.get_unspecified_probe()
+            hygene.get_semantic_activations()
+            hygene.sample_hypotheses()
+            hygene.get_echo_intensities()
+            probs = hygene.get_probabilities()
+            highest_event = hygene.get_highest_prob_event()
+            print(f"probe {probe}. GT: {probe.event}  probs: {probs}  HighestEvent: {highest_event}")
+
+            if probe.event == highest_event:
+                right += 1
+            else:
+                wrong += 1
+        
+        print(f"right {right}  wrong {wrong}  percent {(right/(right+wrong))}")
+
+
+
+
 
 
 if __name__ == "__main__":
     football = Football()
-    football.read_data()
-
-    # football.simple_model()
-    # football.print_overall_stats()
-    # football.print_yearly_stats()
-    # logging.info("------------------- logit ----------------------")
-    # football.model_logit()
-    # logging.info("------------------- dectree ----------------------")
-    # football.model_dectree()
-    # logging.info("------------------- random forest ----------------------")
-    # football.model_random_forest()
-    # logging.info("------------------- knn ----------------------")
-    # football.model_knn()
-    logging.info("------------------- mlp ----------------------")
-    # football.model_mlp()
-    football.model_mlp_search_params()
+    # football.run_all()
+    football.run_hygene()

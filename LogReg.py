@@ -1,21 +1,18 @@
 #
 # Simple wrapper for Logistic Regression
 #
-import logging
 
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn.metrics import roc_auc_score
 
 import logger
 
-logger.set_logging()
-
-
 class LogReg:
 
     def __init__(self, X_train, X_test, y_train, y_test):
         """Run a 'standard' LogReg process, use CV to optimize, then print results on
         train and test."""
+        self.log = logger.getLogger()
 
         self.X_train = X_train
         self.X_test = X_test
@@ -34,9 +31,9 @@ class LogReg:
         y_shape = self.y_train.shape
 
         if x_shape[0] != y_shape[0]:
-            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
+            self.log.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
         if len(y_shape) != 1:
-            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
+            self.log.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
 
         # ----------------------------------
         # Training data
@@ -46,22 +43,22 @@ class LogReg:
         # which is accuracy_score from _classification.py, which is simply
         # the % that match.
         score = self.logistic_regression.score(self.X_train, self.y_train)
-        logging.info(f"Train: {score}")
+        self.log.info(f"Train: {score}")
 
         # AUC score
         prediction = self.logistic_regression.predict_proba(self.X_train)[:, 1]
         auc_score = roc_auc_score(self.y_train, prediction, multi_class='ovr')
-        logging.info(f"Train: {auc_score}")
+        self.log.info(f"Train: {auc_score}")
 
         # ----------------------------------
         # Test data
         score = self.logistic_regression.score(self.X_test, self.y_test)
-        logging.info(f"Test:  {score}")
+        self.log.info(f"Test:  {score}")
 
         # AUC score
         prediction = self.logistic_regression.predict_proba(self.X_test)[:, 1]
         auc_score = roc_auc_score(self.y_test, prediction, multi_class='ovr')
-        logging.info(f"Test:  {auc_score}")
+        self.log.info(f"Test:  {auc_score}")
 
     def score_multi_class(self):
         """ Score, where the y_train / y_test is multiclass.  """
@@ -70,9 +67,9 @@ class LogReg:
         y_shape = self.y_train.shape
 
         if x_shape[0] != y_shape[0]:
-            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
+            self.log.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
         if len(y_shape) > 1:
-            logging.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
+            self.log.warning(f"Problem with shape of x/y {x_shape} {y_shape}")
 
         # ----------------------------------
         # Training data
@@ -82,19 +79,19 @@ class LogReg:
         # which is accuracy_score from _classification.py, which is simply
         # the % that match.
         score = self.logistic_regression.score(self.X_train, self.y_train)
-        logging.info(f"Train: {score}")
+        self.log.info(f"Train: {score}")
 
         # AUC score
         prediction = self.logistic_regression.predict_proba(self.X_train)
         auc_score = roc_auc_score(self.y_train, prediction, multi_class='ovr')
-        logging.info(f"Train: {auc_score}")
+        self.log.info(f"Train: {auc_score}")
 
         # ----------------------------------
         # Test data
         score = self.logistic_regression.score(self.X_test, self.y_test)
-        logging.info(f"Test:  {score}")
+        self.log.info(f"Test:  {score}")
 
         # AUC score
         prediction = self.logistic_regression.predict_proba(self.X_test)
         auc_score = roc_auc_score(self.y_test, prediction, multi_class='ovr')
-        logging.info(f"Test:  {auc_score}")
+        self.log.info(f"Test:  {auc_score}")
